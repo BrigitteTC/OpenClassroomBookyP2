@@ -1,714 +1,732 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="utf-8">
-<!-- OpenClassroom Projet 2  New site Booki -->
-<!-- Création: 25/11/2021-->
-<!-- Auteur: BTC-->
-<!--  -->
-<!--  -->
-<!-- Versions-->
-<!-- V1   29/11/2021-->
-<!--Head-->
-<!--Header avec NAV-->
-<!--Header AffichageRecherche, Filtres, Promesse-->
-<!--Body: Structure-->
-<!--V2 -->
-<!--Main: Ajout Structure hebergements-->
-<!--Main: Ajout article Hebergt-->
-<!--Header: Correction des balises-->
-<!--V3 -->
-<!--Ajout formulaire de recherche pour section Recherche-->
-<!--V4 -->
-<!--Ajout section Hébergements à Marseille-->
-<!--V5 -->
-<!--Ajout section Populaires-->
-<!--V6 -->
-<!--01: Ajout section Activites-->
-<!--02: Correction place du <a ref avant la balise <article (permet d'englober tout le bloc)-->
-<!--03: Ajout class ArrondiTouscoins  à section recherche et aux articles + photos avec bords arrondis  -->
-<!--V7-->
-<!--01: Activites : Correction photos et commentaires des 3 activités de gauche-->
-<!--V8-->
-<!--01: Hebergt: Balise "article" déplacée avant le a et ajout class LienArticle-->
-<!--02: Hebergt: idem pour tous les items-->
-<!--03: Ajout footer       -->
-<!--V9-->
-<!--Photos: rep 2_large au lieu de 1_xlarge pour optimiser le temps de chargement-->
-<!--V10-->
-<!--Ajout Class "LienArticle" sur tous les acticles de Hebertg Pop et Activités-->
-<!--V11-->
-<!--Ajout "" pour chaque classe-->
-<!--V12-->
-<!--Ajout class ArrondiTouscoins  à  ListeHebergements  HebergtPop  -->
-<!--Activites: ajout classe: Activites1ou2  -->
-<!--Activites: Ajout classe TitreActivites -->
-<!--Hebergt: Ajout classe HebergtArticle  sur chaque article-->
-<!-- Activités: Div Activites1ou2 Bloc2Articles divisée en 2 DIV-->
-<!--Activités: bloc de 2 articles ActiviteItem remplacé par ActiviteItemReduit-->
-<!--V13  V14-->
-<!--Corrections suite w3C-->
-<!-- Sections du header: Ajout balises h3 et h4-->
-<!--    Recherche: ajout h3  class=Transparent-->
-<!--V15-->
-<!--Corrections Activites-->
-<!--V16-->
-<!-- Adaptation pour smartphones et tablettes-->
-<!-- Recherche: ajout classe BoutonSmartphone pour le bouton de smartphone-->
-<!--Recherche: Ajout classes RechercheGauche RechercheCentre RechercheDroite pour fixer les positions en absolu-->
-<!--V17-->
-<!--Ajout classe PopArticle pour Heb populaires-->
-<!--Correction ligne input pour bouton loupe car ne passe par le WC3 :  <input type="submit" value=""><span class="fas fa-search Logo"></span>>-->
-<!--Filtres: ajout classe listeFiltres-->
-<!--Ajout classe LogoBooki-->
-<!--Recherche avec loupe: suppresion du input: impossible de positionner le bouton loupe-->
-<!--LogoFiltreDescription rebaptisé FiltreLogo-->
-<!--LogoRechercheDescription renommé RechercheLogo-->
-<!--ChampRecherche renommé RechercheChamp-->
-<!--BoutonRecherche renommé RechercheBouton-->
-<!--BoutonSmartphone renommé RechercheBoutonSmartphone-->
+  <head>
+    <meta charset="utf-8" />
+    <!-- OpenClassroom Projet 2  New site Booki -->
+    <!-- Création: 25/11/2021-->
+    <!-- Auteur: BTC-->
+    <!--  -->
+    <!--  -->
+    <!-- Versions-->
+    <!-- V1   29/11/2021-->
+    <!--Head-->
+    <!--Header avec NAV-->
+    <!--Header AffichageRecherche, Filtres, Promesse-->
+    <!--Body: Structure-->
+    <!--V2 -->
+    <!--Main: Ajout Structure hebergements-->
+    <!--Main: Ajout article Hebergt-->
+    <!--Header: Correction des balises-->
+    <!--V3 -->
+    <!--Ajout formulaire de recherche pour section Recherche-->
+    <!--V4 -->
+    <!--Ajout section Hébergements à Marseille-->
+    <!--V5 -->
+    <!--Ajout section Populaires-->
+    <!--V6 -->
+    <!--01: Ajout section Activites-->
+    <!--02: Correction place du <a ref avant la balise <article (permet d'englober tout le bloc)-->
+    <!--03: Ajout class ArrondiTouscoins  à section recherche et aux articles + photos avec bords arrondis  -->
+    <!--V7-->
+    <!--01: Activites : Correction photos et commentaires des 3 activités de gauche-->
+    <!--V8-->
+    <!--01: Hebergt: Balise "article" déplacée avant le a et ajout class LienArticle-->
+    <!--02: Hebergt: idem pour tous les items-->
+    <!--03: Ajout footer       -->
+    <!--V9-->
+    <!--Photos: rep 2_large au lieu de 1_xlarge pour optimiser le temps de chargement-->
+    <!--V10-->
+    <!--Ajout Class "LienArticle" sur tous les acticles de Hebertg Pop et Activités-->
+    <!--V11-->
+    <!--Ajout "" pour chaque classe-->
+    <!--V12-->
+    <!--Ajout class ArrondiTouscoins  à  ListeHebergements  HebergtPop  -->
+    <!--Activites: ajout classe: Activites1ou2  -->
+    <!--Activites: Ajout classe TitreActivites -->
+    <!--Hebergt: Ajout classe HebergtArticle  sur chaque article-->
+    <!-- Activités: Div Activites1ou2 Bloc2Articles divisée en 2 DIV-->
+    <!--Activités: bloc de 2 articles ActiviteItem remplacé par ActiviteItemReduit-->
+    <!--V13  V14-->
+    <!--Corrections suite w3C-->
+    <!-- Sections du header: Ajout balises h3 et h4-->
+    <!--    Recherche: ajout h3  class=Transparent-->
+    <!--V15-->
+    <!--Corrections Activites-->
+    <!--V16-->
+    <!-- Adaptation pour smartphones et tablettes-->
+    <!-- Recherche: ajout classe BoutonSmartphone pour le bouton de smartphone-->
+    <!--Recherche: Ajout classes RechercheGauche RechercheCentre RechercheDroite pour fixer les positions en absolu-->
+    <!--V17-->
+    <!--Ajout classe PopArticle pour Heb populaires-->
+    <!--Correction ligne input pour bouton loupe car ne passe par le WC3 :  <input type="submit" value=""><span class="fas fa-search Logo"></span>>-->
+    <!--Filtres: ajout classe listeFiltres-->
+    <!--Ajout classe LogoBooki-->
+    <!--Recherche avec loupe: suppresion du input: impossible de positionner le bouton loupe-->
+    <!--LogoFiltreDescription rebaptisé FiltreLogo-->
+    <!--LogoRechercheDescription renommé RechercheLogo-->
+    <!--ChampRecherche renommé RechercheChamp-->
+    <!--BoutonRecherche renommé RechercheBouton-->
+    <!--BoutonSmartphone renommé RechercheBoutonSmartphone-->
 
-<!--xxxxx-->
-<!--Remarque-->
-<!--La class i de Font Awesome est remplacée par span pour la verif code-->
-<!--Remarque-->
+    <!--xxxxx-->
+    <!--Remarque-->
+    <!--La class i de Font Awesome est remplacée par span pour la verif code-->
+    <!--Remarque-->
 
-        <!--la valeur passée à content va nous permettre d’indiquer comment le navigateur doit afficher la page sur différents appareils.-->
+    <!--la valeur passée à content va nous permettre d’indiquer comment le navigateur doit afficher la page sur différents appareils.-->
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">  <!--- pour les mobiles-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--- pour les mobiles-->
 
-        <!--Police de caractere-->
-        <!--Font Raleway-->
+    <!--Police de caractere-->
+    <!--Font Raleway-->
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway&display=swap"
+      rel="stylesheet"
+    />
 
-        <!--Fontawsome-->      
-        <script src="https://kit.fontawesome.com/6a1e5290f1.js" crossorigin="anonymous"></script>
+    <!--Fontawsome-->
+    <script
+      src="https://kit.fontawesome.com/6a1e5290f1.js"
+      crossorigin="anonymous"
+    ></script>
 
-        
-        <!--Appel Normalize-->
-        <link rel="normalize" href="CSS/normalize.css" />
-        
-        <!--Appel fichier de style css-->
-        <link rel="stylesheet" href="CSS/style.css" />
+    <!--Appel Normalize-->
+    <link rel="normalize" href="CSS/normalize.css" />
 
-        <title>New site booki</title>
+    <!--Appel fichier de style css-->
+    <link rel="stylesheet" href="CSS/style.css" />
 
-        
-    </head>
+    <title>New site booki</title>
+  </head>
 
-    <body>
+  <body>
+    <div>
+      <!--Header-->
+      <header>
+        <nav>
+          <div class="LogoBooki">
+            <img src="IMAGES/logo/Booki.png" alt="Logo" />
+          </div>
+          <ul>
+            <li><a href="#HebergementPopNormaux">Hébergements</a></li>
+            <li><a href="#Activites">Activités</a></li>
+          </ul>
+        </nav>
 
-        <div >
-        <!--Header-->
-            <header>
-                <nav>
-                    <div class="LogoBooki">
-                        <img src="IMAGES/logo/Booki.png"   alt="Logo" />
-                    </div>
-                    <ul>
-                        <li><a href="#HebergementPopNormaux">Hébergements</a></li>
-                        <li><a href="#Activites">Activités</a></li>
-                    </ul>
-                   
-                </nav>
+        <!--Titre de la page-->
+        <section class="TitrePage">
+          <h1>Trouvez votre hébergement pour des vacances de rêve</h1>
+          <p>En plein centre ville ou en pleine nature</p>
+        </section>
 
-               <!--Titre de la page-->
-               <section class=TitrePage>               
-                    <h1>Trouvez votre hébergement pour des vacances de rêve</h1>
-                    <p>En plein centre ville ou en pleine nature</p>
-                </section>
+        <!--Section de recherche-->
+        <section class="Recherche">
+          <!--Formulaire de recherche-->
+          <form method="post" action="traitement.php">
+            <!--Bloc recherche avec logo, zone de saisie et Bouton submit-->
+            <div class="RechercheItem ArrondiTousCoins">
+              <div class="RechercheLogo ArrondiGauche">
+                <!--Logo position -->
+                <span class="fas fa-map-marker-alt Logo"></span>
+              </div>
 
-                <!--Section de recherche-->
-                <section class="Recherche">      
-                       
-                    <!--Formulaire de recherche-->
-                    <form  method="post" action= "traitement.php" >
-                        <!--Bloc recherche avec logo, zone de saisie et Bouton submit-->
-                        <div class="RechercheItem  ArrondiTousCoins">       
-                            <div class="RechercheLogo ArrondiGauche">    <!--Logo position -->                           
-                                <span class="fas fa-map-marker-alt Logo"></span>
-                            </div>
+              <div class="RechercheChamp">
+                <!--zone de saisie-->
+                <p class="bold">
+                  <input
+                    class="saisie"
+                    type="text"
+                    name="ville"
+                    id="ville"
+                    placeholder="Ex: Marseille"
+                  />
+                </p>
+              </div>
 
-                            <div class="RechercheChamp">             <!--zone de saisie-->       
-                                <p class="bold">                           
-                                    <input class="saisie" type="text" name="ville" id="ville" placeholder="Ex: Marseille"/>
-                                </p>
-                            </div>
+              <div class="RechercheBouton ArrondiDroite">
+                <!--Bouton Submit-->
+                <p>
+                  <!--Balise p indispensable pour afficher du texte dans le formulaire-->
+                  <input type="submit" value="Rechercher " />
+                </p>
+              </div>
 
-                            <div class="RechercheBouton  ArrondiDroite">   <!--Bouton Submit-->
-                                <p>  <!--Balise p indispensable pour afficher du texte dans le formulaire-->
-                                  <input type="submit" value="Rechercher "/>
-                                   
-                                </p>
+              <div class="RechercheBoutonSmartphone ArrondiTousCoins">
+                <!--Logo loupe -->
 
-                            </div>   
+                <!--<input type="submit" value=""><span class="fas fa-search LogoLoupe"></span>-->
+                <span class="fas fa-search LogoLoupe"></span>
+              </div>
+            </div>
+          </form>
+          <div>
+            <h6 class="Transparent">""</h6>
+            <!--Balise h6 cachée pour passer le wC3-->
+          </div>
+        </section>
 
-                           <div class="RechercheBoutonSmartphone  ArrondiTousCoins">    <!--Logo loupe --> 
+        <!--Filtres-->
+        <section class="Filtres">
+          <div class="FiltresTitre">
+            <h3 class="bold">Filtres</h3>
+          </div>
 
-                                 <!--<input type="submit" value=""><span class="fas fa-search LogoLoupe"></span>-->
-                                 <span class="fas fa-search LogoLoupe"></span>
-                            </div>
+          <!--Liste des filtres-->
+          <div class="ListeFiltres">
+            <div class="FiltreItem">
+              <div class="FiltreLogo">
+                <!--Logo Eco   La class i de Font Awesome est remplacée par span pour la verif code-->
+                <span class="fas fa-money-bill-wave-alt Logo"></span>
+              </div>
+              <div class="FiltreDesc">
+                <p class="bold">Economique</p>
+              </div>
+            </div>
 
+            <div class="FiltreItem">
+              <div class="FiltreLogo">
+                <!--Logo Familial   La class i de Font Awesome est remplacée par span pour la verif code-->
+                <span class="fas fa-child Logo"></span>
+              </div>
+              <div class="FiltreDesc">
+                <p class="bold">Familial</p>
+              </div>
+            </div>
 
+            <div class="FiltreItem">
+              <div class="FiltreLogo">
+                <!--Logo Romantique   La class i de Font Awesome est remplacée par span pour la verif code-->
+                <span class="fas fa-heart Logo"></span>
+              </div>
+              <div class="FiltreDesc">
+                <p class="bold">Romantique</p>
+              </div>
+            </div>
 
+            <div class="FiltreItem">
+              <div class="FiltreLogo">
+                <!--Logo Animaux   La class i de Font Awesome est remplacée par span pour la verif code-->
+                <span class="fas fa-dog Logo"></span>
+              </div>
+              <div class="FiltreDesc">
+                <p class="bold">Animaux autorisés</p>
+              </div>
+            </div>
+          </div>
+          <!--Fin liste des filtres-->
+        </section>
+
+        <!--Promesse-->
+        <section class="Promesse">
+          <div class="LogoPromesseDescription">
+            <!--Logo info   La class i de Font Awesome est remplacée par span pour la verif code-->
+            <span class="fas fa-info Logo"></span>
+          </div>
+          <div class="PromesseBlabla">
+            <h4>Plus de 500 logements sont disponibles dans cette ville</h4>
+          </div>
+        </section>
+      </header>
+
+      <!--Main-->
+
+      <main>
+        <!--Section Hebergements  les normaux et les plus populaires-->
+        <section id="HebergementPopNormaux">
+          <div class="HebergtNormaux ArrondiTousCoins">
+            <!--Le titre du bloc-->
+            <div class="DecalageGauche">
+              <h2>Hébergements à Marseille</h2>
+            </div>
+
+            <!--La liste des hébergt -->
+            <div class="ListeHebergements ArrondiTousCoins">
+              <!--1ier block de la liste des hebergt par 3-->
+              <div class="ListeHebergtx3">
+                <!--3 hébergements-->
+                <!-- Articles avec Image hebergt + description-->
+                <article class="HebergtArticle LienArticle">
+                  <a href="#">
+                    <!--Lien sur le bloc -->
+                    <div class="HebergtItem">
+                      <!--Image-->
+                      <img
+                        class="HebImg"
+                        src="IMAGES/hebergements/2_large/marcus-loke-WQJvWU_HZFo-unsplash.jpg"
+                        alt="Auberge la Cannebiere"
+                      />
+
+                      <!--Description-->
+                      <div class="HebergtDescr">
+                        <h3>Auberge la Cannebière</h3>
+
+                        <p>Nuit à partir de <span class="bold"> 25€</span></p>
+
+                        <div class="Etoiles">
+                          <span class="fas fa-star EtoilePleine"></span>
+                          <span class="fas fa-star EtoilePleine"></span>
+                          <span class="fas fa-star EtoilePleine"></span>
+                          <span class="fas fa-star EtoilePleine"></span>
+                          <span class="fas fa-star EtoilePale"></span>
                         </div>
-                    </form>
-                    <div>
-                        <h6  class=Transparent>""</h6>  <!--Balise h6 cachée pour passer le wC3-->
-                    </div> 
-                
-                </section>  
-
-
-                <!--Filtres-->                
-                <section class="Filtres">
-                    
-                    
-                    <div class="FiltresTitre">
-                        <h3 class="bold">Filtres</h3>
+                      </div>
                     </div>
-                    
-                    <!--Liste des filtres-->
-                    <div class=ListeFiltres>
-                    
-                        <div class="FiltreItem">
-                            <div class="FiltreLogo">
-                                <!--Logo Eco   La class i de Font Awesome est remplacée par span pour la verif code-->
-                                <span class="fas fa-money-bill-wave-alt Logo"></span>
-                    
-                            </div>
-                            <div class="FiltreDesc">
-                    
-                                <p class="bold">Economique</p>
-                            </div>
-                    
+                  </a>
+                </article>
+
+                <article class="HebergtArticle LienArticle">
+                  <a href="#">
+                    <!--Lien sur le bloc -->
+                    <div class="HebergtItem">
+                      <!--Image-->
+                      <img
+                        class="HebImg"
+                        src="IMAGES/hebergements/2_large/fred-kleber-gTbaxaVLvsg-unsplash.jpg"
+                        alt="Hôtel du port"
+                      />
+
+                      <!--Description-->
+                      <div class="HebergtDescr">
+                        <h3>Hôtel du Port</h3>
+                        <p>Nuit à partir de <span class="bold"> 52€</span></p>
+                        <div class="Etoiles">
+                          <span class="fas fa-star EtoilePleine"></span>
+                          <span class="fas fa-star EtoilePleine"></span>
+                          <span class="fas fa-star EtoilePleine"></span>
+                          <span class="fas fa-star EtoilePleine"></span>
+                          <span class="fas fa-star EtoilePleine"></span>
                         </div>
-                    
-                        <div class="FiltreItem">
-                            <div class="FiltreLogo">
-                                <!--Logo Familial   La class i de Font Awesome est remplacée par span pour la verif code-->
-                                <span class="fas fa-child Logo"></span>
-                            </div>
-                            <div class="FiltreDesc">
-                                <p class="bold">Familial</p>
-                            </div>
-                    
+                      </div>
+                    </div>
+                  </a>
+                </article>
+
+                <article class="HebergtArticle LienArticle">
+                  <a href="#">
+                    <!--Lien du bloc -->
+                    <div class="HebergtItem">
+                      <!--Image-->
+                      <img
+                        class="HebImg"
+                        src="IMAGES/hebergements/2_large/reisetopia-B8WIgxA_PFU-unsplash.jpg"
+                        alt="Hôtel les mouettes"
+                      />
+
+                      <!--Description-->
+                      <div class="HebergtDescr">
+                        <h3>Hôtel les mouettes</h3>
+                        <p>Nuit à partir de <span class="bold"> 76€</span></p>
+                        <div class="Etoiles">
+                          <span class="fas fa-star EtoilePleine"></span>
+                          <span class="fas fa-star EtoilePleine"></span>
+                          <span class="fas fa-star EtoilePleine"></span>
+                          <span class="fas fa-star EtoilePleine"></span>
+                          <span class="fas fa-star EtoilePale"></span>
                         </div>
-                    
-                        <div class="FiltreItem">
-                            <div class="FiltreLogo">
-                                <!--Logo Romantique   La class i de Font Awesome est remplacée par span pour la verif code-->
-                                <span class="fas fa-heart Logo"></span>
-                    
-                            </div>
-                            <div class="FiltreDesc">
-                                <p class="bold">Romantique</p>
-                            </div>
+                      </div>
+                    </div>
+                  </a>
+                </article>
+              </div>
+              <!--Fin du 1ier block de la liste des hebergt par 3-->
+
+              <!--2ieme block de la liste des hebergt par 3-->
+              <div class="ListeHebergtx3">
+                <!--3 hébergements-->
+                <article class="HebergtArticle LienArticle">
+                  <a href="#">
+                    <!--Lien sur le bloc -->
+                    <div class="HebergtItem">
+                      <!--Image-->
+                      <img
+                        class="HebImg"
+                        src="IMAGES/hebergements/2_large/annie-spratt-Eg1qcIitAuA-unsplash.jpg"
+                        alt="Hôtel de la mer"
+                      />
+
+                      <!--Description-->
+                      <div class="HebergtDescr">
+                        <h3>Hôtel de la mer</h3>
+                        <p>Nuit à partir de <span class="bold"> 46€</span></p>
+                        <div class="Etoiles">
+                          <span class="fas fa-star EtoilePleine"></span>
+                          <span class="fas fa-star EtoilePleine"></span>
+                          <span class="fas fa-star EtoilePleine"></span>
+                          <span class="fas fa-star EtoilePale"></span>
+                          <span class="fas fa-star EtoilePale"></span>
                         </div>
-                    
-                    
-                        <div class="FiltreItem">
-                            <div class="FiltreLogo">
-                                <!--Logo Animaux   La class i de Font Awesome est remplacée par span pour la verif code-->
-                                <span class="fas fa-dog Logo"></span>
-                    
-                            </div>
-                            <div class="FiltreDesc">
-                                <p class="bold">Animaux autorisés</p>
-                            </div>
+                      </div>
+                    </div>
+                  </a>
+                </article>
+
+                <article class="HebergtArticle LienArticle">
+                  <a href="#">
+                    <!--Lien sur le bloc -->
+                    <div class="HebergtItem">
+                      <!--Image-->
+                      <img
+                        class="HebImg"
+                        src="IMAGES/hebergements/2_large/nicate-lee-kT-ZyaiwBe0-unsplash.jpg"
+                        alt="Auberge le panier"
+                      />
+
+                      <!--Description-->
+                      <div class="HebergtDescr">
+                        <h3>Auberge le panier</h3>
+                        <p>Nuit à partir de <span class="bold"> 23€</span></p>
+                        <div class="Etoiles">
+                          <span class="fas fa-star EtoilePleine"></span>
+                          <span class="fas fa-star EtoilePleine"></span>
+                          <span class="fas fa-star EtoilePleine"></span>
+                          <span class="fas fa-star EtoilePleine"></span>
+                          <span class="fas fa-star EtoilePale"></span>
                         </div>
-                    
+                      </div>
                     </div>
-                    <!--Fin liste des filtres-->
-                    
-                </section>
+                  </a>
+                </article>
 
-                <!--Promesse-->
-                <section class="Promesse">
-                    
-                    
-                    <div class="LogoPromesseDescription">
-                        <!--Logo info   La class i de Font Awesome est remplacée par span pour la verif code-->
-                        <span class="fas fa-info Logo"></span>
-                    </div>
-                    <div class="PromesseBlabla">
-                        <h4>Plus de 500 logements sont disponibles dans cette ville</h4>
-                    </div>
-                    
-                </section>                
+                <article class="HebergtArticle LienArticle">
+                  <a href="#">
+                    <!--Lien sur le bloc -->
+                    <div class="HebergtItem">
+                      <!--Image-->
+                      <img
+                        class="HebImg"
+                        src="IMAGES/hebergements/2_large/febrian-zakaria-M6S1WvfW68A-unsplash.jpg"
+                        alt="Hôtel chez Amina"
+                      />
 
-            </header>
-        
-        <!--Main-->
-            
-            <main>
-                <!--Section Hebergements  les normaux et les plus populaires-->
-                <section id="HebergementPopNormaux">
-                    <div class="HebergtNormaux  ArrondiTousCoins">
-
-                        <!--Le titre du bloc-->
-                        <div class="DecalageGauche">
-                            <h2>Hébergements à Marseille</h2>
+                      <!--Description-->
+                      <div class="HebergtDescr">
+                        <h3>Hôtel chez Amina</h3>
+                        <p>Nuit à partir de <span class="bold"> 96€</span></p>
+                        <div class="Etoiles">
+                          <span class="fas fa-star EtoilePleine"></span>
+                          <span class="fas fa-star EtoilePleine"></span>
+                          <span class="fas fa-star EtoilePleine"></span>
+                          <span class="fas fa-star EtoilePleine"></span>
+                          <span class="fas fa-star EtoilePleine"></span>
                         </div>
-
-                        <!--La liste des hébergt -->
-                        <div class="ListeHebergements ArrondiTousCoins">
-
-                            <!--1ier block de la liste des hebergt par 3-->
-                            <div class="ListeHebergtx3">   <!--3 hébergements-->
-                                <!-- Articles avec Image hebergt + description-->
-                                <article class="HebergtArticle LienArticle">
-                                    <a href="#" >  <!--Lien sur le bloc -->
-                                        <div class="HebergtItem">
-                                            <!--Image-->
-                                            <img  class= "HebImg"
-                                                src="IMAGES/hebergements/2_large/marcus-loke-WQJvWU_HZFo-unsplash.JPG"   
-                                                alt="Auberge la Cannebiere"/>
-
-                                            <!--Description-->
-                                            <div class="HebergtDescr">
-                                                
-                                                <h3> Auberge la Cannebière</h3>
-                                                                                               
-                                                <p>Nuit à partir de <span class=bold> 25€</span></p>
-                                                
-                                                <div class="Etoiles">
-                                                    <span class="fas fa-star EtoilePleine"></span>
-                                                    <span class="fas fa-star EtoilePleine"></span>
-                                                    <span class="fas fa-star EtoilePleine"></span>
-                                                    <span class="fas fa-star EtoilePleine"></span>
-                                                    <span class="fas fa-star EtoilePale"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </article>
-
-                                <article class="HebergtArticle LienArticle">
-                                    <a href="#">  <!--Lien sur le bloc -->
-                                        <div class="HebergtItem">
-                                            <!--Image-->
-                                            <img class= "HebImg" 
-                                                src="IMAGES/hebergements/2_large/fred-kleber-gTbaxaVLvsg-unsplash.JPG"   
-                                                alt="Hôtel du port"/>
-
-                                            <!--Description-->
-                                            <div class="HebergtDescr">
-                                                <h3> Hôtel du Port</h3>
-                                                <p>Nuit à partir de <span class=bold> 52€</span></p>
-                                                <div class="Etoiles">
-                                                    <span class="fas fa-star EtoilePleine"></span>
-                                                    <span class="fas fa-star EtoilePleine"></span>
-                                                    <span class="fas fa-star EtoilePleine"></span>
-                                                    <span class="fas fa-star EtoilePleine"></span>
-                                                    <span class="fas fa-star EtoilePleine"></span>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </a>
-                                </article>
-
-                                <article class="HebergtArticle LienArticle">
-                                    <a href="#">   <!--Lien du bloc -->
-                                        <div  class="HebergtItem">
-                                            <!--Image-->                                    
-                                            <img class= "HebImg" 
-                                                src="IMAGES/hebergements/2_large/reisetopia-B8WIgxA_PFU-unsplash.JPG"   
-                                                alt="Hôtel les mouettes">
-                                            
-                                            <!--Description-->
-                                            <div class="HebergtDescr">                                       
-                                                <h3> Hôtel les mouettes</h3>
-                                                <p>Nuit à partir de <span class=bold> 76€</span></p>
-                                                <div class="Etoiles">
-                                                    <span class="fas fa-star EtoilePleine"></span>
-                                                    <span class="fas fa-star EtoilePleine"></span>
-                                                    <span class="fas fa-star EtoilePleine"></span>
-                                                    <span class="fas fa-star EtoilePleine"></span>
-                                                    <span class="fas fa-star EtoilePale"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </article>
-                            </div>   <!--Fin du 1ier block de la liste des hebergt par 3-->
-
-                            <!--2ieme block de la liste des hebergt par 3-->
-                            <div class="ListeHebergtx3">   <!--3 hébergements-->
-                                <article class="HebergtArticle LienArticle">
-                                    <a href="#">  <!--Lien sur le bloc -->
-                                        <div  class="HebergtItem">
-                                        
-                                            <!--Image-->                                        
-                                            <img class= "HebImg" 
-                                                src="IMAGES/hebergements/2_large/annie-spratt-Eg1qcIitAuA-unsplash.JPG"   
-                                                alt="Hôtel de la mer">
-                                            
-                                            <!--Description-->
-                                            <div class="HebergtDescr">
-                                                <h3> Hôtel de la mer</h3>
-                                                <p>Nuit à partir de <span class=bold> 46€</span></p>
-                                                <div class="Etoiles">
-                                                    <span class="fas fa-star EtoilePleine"></span>
-                                                    <span class="fas fa-star EtoilePleine"></span>
-                                                    <span class="fas fa-star EtoilePleine"></span>
-                                                    <span class="fas fa-star EtoilePale"></span>
-                                                    <span class="fas fa-star EtoilePale"></span>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </a>
-                                </article>
-
-                                <article class="HebergtArticle LienArticle">
-                                    <a href="#">  <!--Lien sur le bloc -->
-                                        <div  class="HebergtItem">
-
-                                            <!--Image-->                                            
-                                            <img class= "HebImg" 
-                                                src="IMAGES/hebergements/2_large/nicate-lee-kT-ZyaiwBe0-unsplash.JPG"   
-                                                alt="Auberge le panier">
-                                                    
-                                            <!--Description-->
-                                            <div class="HebergtDescr">
-                                                <h3> Auberge le panier</h3>
-                                                <p>Nuit à partir de <span class=bold> 23€</span></p>
-                                                <div class="Etoiles">
-                                                    <span class="fas fa-star EtoilePleine"></span>
-                                                    <span class="fas fa-star EtoilePleine"></span>
-                                                    <span class="fas fa-star EtoilePleine"></span>
-                                                    <span class="fas fa-star EtoilePleine"></span>
-                                                    <span class="fas fa-star EtoilePale"></span>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </a>
-                                </article>
-
-                                <article class="HebergtArticle LienArticle">
-                                    <a href="#">  <!--Lien sur le bloc -->
-                                        <div  class="HebergtItem">
-
-                                            <!--Image-->                                                
-                                            <img class= "HebImg" 
-                                                src="IMAGES/hebergements/2_large/febrian-zakaria-M6S1WvfW68A-unsplash.JPG"   
-                                                alt="Hôtel chez Amina">
-                                                        
-                                            <!--Description-->
-                                            <div class="HebergtDescr">
-                                                <h3> Hôtel chez Amina</h3>
-                                                <p>Nuit à partir de <span class=bold> 96€</span></p>
-                                                <div class="Etoiles">
-                                                    <span class="fas fa-star EtoilePleine"></span>
-                                                    <span class="fas fa-star EtoilePleine"></span>
-                                                    <span class="fas fa-star EtoilePleine"></span>
-                                                    <span class="fas fa-star EtoilePleine"></span>
-                                                    <span class="fas fa-star EtoilePleine"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </article>
-                            </div>      <!--Fin du 2ieme block de la liste des hebergt par 3--> <!--Fin du 2ieme block de la liste des hebergt par 3-->
-                        </div>  <!--Fin de la liste des hebergt -->
-
-
-                        <!--Le bas du bloc hébergement-->
-                        <div>
-                            <p class= "DecalageGauche bold">Afficher plus</p>
-                        </div>
-
-                    </div>    <!--Fin des hebergt normaux-->      
-
-
-                    <!--Hébergements populaires--> 
-                    <div class="HebergtPop ArrondiTousCoins">
-
-                        <!-- Le titre et son logo-->
-                        <div class=TitreHebergtPop>
-                            <div >       <!-- Le titre-->
-                                <h2 class="DecalageGauche">Les plus populaires</h2>
-                            </div>
-                            <div class=LogoHebergtPop>       <!-- Le logo-->
-                                <span class="fas fa-chart-line logo"></span>
-                            </div>
-                        </div>
-
-                        <!-- La liste des hébergt populaires-->
-                        <div class="ListePopulaires">
-                        <article class="PopArticle LienArticle">                          
-                            <a href="#">  <!--Lien sur le bloc -->
-                            
-                                <div class="PopItem">      <!--Article avec image et description -->   
-
-                                    <!--Image-->                                                
-                                    <img class= "PopImg" 
-                                        src="IMAGES/hebergements/2_large/emile-guillemot-Bj_rcSC5XfE-unsplash.JPG"   
-                                        alt="Hôtel le soleil du matin">
-                                                
-                                    <!--Description-->
-                                    <div class=PopDescr>
-                                        <h3> Hôtel le soleil du matin</h3>
-                                        <p>Nuit à partir de <span class=bold> 128€ <br><br></span></p>
-                                        
-                                        <div class="Etoiles">
-                                            <span class="fas fa-star EtoilePleine"></span>
-                                            <span class="fas fa-star EtoilePleine"></span>
-                                            <span class="fas fa-star EtoilePleine"></span>
-                                            <span class="fas fa-star EtoilePleine"></span>
-                                            <span class="fas fa-star EtoilePleine"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-
-                        <article  class="PopArticle LienArticle">
-                            <a href="#">  <!--Lien sur le bloc -->
-                                <div class="PopItem"> <!--article class=LienArticle avec image et description -->   
-
-                                    <!--Image-->                                                
-                                    <img class= "PopImg" 
-                                        src="IMAGES/hebergements/2_large/aw-creative-VGs8z60yT2c-unsplash.JPG"   
-                                        alt="Au coeur de l'eau Chambresd'hôtes">
-                                                
-                                    <!--Description-->
-                                    <div class=PopDescr>
-                                        <h3> Au coeur de l'eau<br>  Chambres d'hôtes</h3>
-                                        <p>Nuit à partir de <span class=bold> 71€</span><br><br></p>
-                                        <div class="Etoiles">
-                                            <span class="fas fa-star EtoilePleine"></span>
-                                            <span class="fas fa-star EtoilePleine"></span>
-                                            <span class="fas fa-star EtoilePleine"></span>
-                                            <span class="fas fa-star EtoilePleine"></span>
-                                            <span class="fas fa-star EtoilePale"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-
-                        <article class="PopArticle LienArticle">
-                            <a href="#">  <!--Lien sur le bloc -->
-                                <div class="PopItem">
-
-                                    <!--Image-->                                                
-                                    <img class= "PopImg" 
-                                        src="IMAGES/hebergements/2_large/febrian-zakaria-sjvU0THccQA-unsplash.JPG"   
-                                        alt="Hôtel tout bleu et Blanc">
-                                                
-                                    <!--Description-->
-                                    <div class=PopDescr>
-                                        <h3> Hôtel tout bleu et Blanc</h3>
-                                        <p>Nuit à partir de <span class=bold> 68€</span><br><br></p>
-                                        <div class="Etoiles">
-                                            <span class="fas fa-star EtoilePleine"></span>
-                                            <span class="fas fa-star EtoilePleine"></span>
-                                            <span class="fas fa-star EtoilePleine"></span>
-                                            <span class="fas fa-star EtoilePleine"></span>
-                                            <span class="fas fa-star EtoilePale"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-
-                        </div>  <!--Fin liste des  hebergt populaires-->
-                    </div>  <!--Fin  hebergt populaires-->
-                
-                </section>  <!--Fin section hebergt normaux et populaires-->
-
-                <!--Section Activites-->
-                <section id="Activites">
-                    <!-- Bloc Activités avec titre et articles-->
-                    <!--Le titre du bloc-->
-                    <div class="TitreActivites DecalageGauche">
-                        <h2>Activités à Marseille</h2>
+                      </div>
                     </div>
-                                                
-                    <!--La liste des activités -->
-                    <div class="ListeActivites">
-                        <!-- Articles avec les activités-->
-                        <article class="Activites1ou2 LienArticle">                        
-                            <a href="#">  <!--Lien sur le bloc  -->
-                                <div class="ActiviteItem">
+                  </a>
+                </article>
+              </div>
+              <!--Fin du 2ieme block de la liste des hebergt par 3-->
+              <!--Fin du 2ieme block de la liste des hebergt par 3-->
+            </div>
+            <!--Fin de la liste des hebergt -->
 
-                                    <!--Image-->                                                
-                                    <img class= "ActiviteImg" 
-                                        src="IMAGES/activites/2_large/reno-laithienne-QUgJhdY5Fyk-unsplash.JPG"   
-                                        alt="Vieux port">
-                                                
-                                    <!--Description-->
-                                    <div class="ActiviteDescr">
-                                        <h3> Vieux port</h3>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
+            <!--Le bas du bloc hébergement-->
+            <div>
+              <p class="DecalageGauche bold">Afficher plus</p>
+            </div>
+          </div>
+          <!--Fin des hebergt normaux-->
 
+          <!--Hébergements populaires-->
+          <div class="HebergtPop ArrondiTousCoins">
+            <!-- Le titre et son logo-->
+            <div class="TitreHebergtPop">
+              <div>
+                <!-- Le titre-->
+                <h2 class="DecalageGauche">Les plus populaires</h2>
+              </div>
+              <div class="LogoHebergtPop">
+                <!-- Le logo-->
+                <span class="fas fa-chart-line logo"></span>
+              </div>
+            </div>
 
-                        <!-- Bloc de 2 Articles avec les activités-->
-                        <div class="Activites1ou2 Bloc2Articles">
+            <!-- La liste des hébergt populaires-->
+            <div class="ListePopulaires">
+              <article class="PopArticle LienArticle">
+                <a href="#">
+                  <!--Lien sur le bloc -->
 
-                            <!-- 1ier article du bloc-->
-                            <article class="LienArticle">                            
-                                <a href="#">  <!--Lien sur le bloc -->                            
-                                    <div class="ActiviteItemReduitHaut">
+                  <div class="PopItem">
+                    <!--Article avec image et description -->
 
-                                        <!--Image-->                                                
-                                        <img class= "ActiviteImgReduite  ActiviteImgReduiteFortP" 
-                                            src="IMAGES/activites/2_large/paul-hermann-QFTrLdQIRhI-unsplash.JPG"   
-                                            alt="Fort de Pomègues">
-                                                
-                                        <!--Description-->
-                                        <div class="ActiviteDescr">
-                                            <h3> Fort de Pomègues</h3>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
+                    <!--Image-->
+                    <img
+                      class="PopImg"
+                      src="IMAGES/hebergements/2_large/emile-guillemot-Bj_rcSC5XfE-unsplash.jpg"
+                      alt="Hôtel le soleil du matin"
+                    />
 
-                            <!-- 2ieme article du bloc-->
-                            <article class="LienArticle">                         
-                                <a href="#">  <!--Lien sur le bloc -->                            
-                                    <div class="ActiviteItemReduitBas">
+                    <!--Description-->
+                    <div class="PopDescr">
+                      <h3>Hôtel le soleil du matin</h3>
+                      <p>
+                        Nuit à partir de
+                        <span class="bold"> 128€ <br /><br /></span>
+                      </p>
 
-                                        <!--Image-->                                                
-                                        <img class= "ActiviteImgReduite  ActiviteImgReduiteIlesF" 
-                                            src="IMAGES/activites/2_large/kevin-hikari-rV_Qd1l-VXg-unsplash.JPG"   
-                                            alt="Fort de Pomègues">
-                                                                            
-                                        <!--Description-->
-                                        <div class="ActiviteDescr">
-                                            <h3> Iles du Frioul</h3>
-                                        </div>
-
-                                    </div>
-                                </a>
-                            </article>
-
-                       </div>  <!-- Fin bloc Activites 1 ou 2-->
-
-                        <article class="Activites1ou2 LienArticle">
-                            <a href="#">  <!--Lien sur le bloc -->
-                                <div class="ActiviteItem">
-
-                                    <!--Image-->                                                
-                                    <img class= "ActiviteImg" 
-                                        src="IMAGES/activites/2_large/kilyan-sockalingum-NR8-cBCN3aI-unsplash.JPG"   
-                                        alt="Parc national des calanques">
-                                            
-                                    <!--Description-->
-                                    <div class="ActiviteDescr">
-                                        <h3> Parc national des calanques</h3>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-
-                        <!-- Bloc de 2 Articles avec les activités-->
-                        <div class="Activites1ou2 Bloc2Articles">
-
-                            <!-- 1ier article du bloc-->
-                            <article class="LienArticle">
-                                <a href="#">  <!--Lien sur le bloc -->
-                                    <div class="ActiviteItemReduitHaut">
-
-                                        <!--Image-->                                                
-                                        <img class= "ActiviteImgReduite  ActiviteImgReduiteNDame"
-                                            src="IMAGES/activites/2_large/florian-wehde-xW9e8gdotxI-unsplash.JPG"   
-                                            alt="Notre-Dame-de-la-Garde">
-                                                
-                                        <!--Description-->
-                                        <div class="ActiviteDescr">
-                                            <h3> Notre-Dame-de-la-Garde</h3>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
-
-                            <!-- 2ieme article du bloc-->
-                            <article class="LienArticle">
-                                <a href="#">  <!--Lien sur le bloc -->
-                                    <div class="ActiviteItemReduitBas">
-
-                                        <!--Image-->                                                
-                                        <img class= "ActiviteImgReduite  ActiviteImgReduitePLongchamp" 
-                                            src="IMAGES/activites/2_large/lena-paulin-wH2-EJoDcV0-unsplash.JPG"   
-                                            alt="Parc Longchamp">
-                                                                            
-                                        <!--Description-->
-                                        <div class="ActiviteDescr">
-                                            <h3> Parc Longchamp</h3>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
-
-                        </div>  <!-- Fin activites 1 ou 2-->                        
-
-                    </div>  <!-- Fin bloc Liste des Activités--> 
-                
-
-                   
-                </section>      <!-- Fin section Activités-->
-            
-            </main>
-
-
-        <!--Footer-->        
-        
-            <footer>
-
-
-
-                <section class=PiedDePage>
-                    <div>
-                        <h3>A propos</h3>
+                      <div class="Etoiles">
+                        <span class="fas fa-star EtoilePleine"></span>
+                        <span class="fas fa-star EtoilePleine"></span>
+                        <span class="fas fa-star EtoilePleine"></span>
+                        <span class="fas fa-star EtoilePleine"></span>
+                        <span class="fas fa-star EtoilePleine"></span>
+                      </div>
                     </div>
-                    <div>
-                        <p><a href="#">Fonctionnement du site</a></p>
-                        <p><a href="#">Conditions générales de vente</a></p>
-                        <p><a href="#">Données et confidentialité</a></p>
+                  </div>
+                </a>
+              </article>
 
+              <article class="PopArticle LienArticle">
+                <a href="#">
+                  <!--Lien sur le bloc -->
+                  <div class="PopItem">
+                    <!--article class=LienArticle avec image et description -->
+
+                    <!--Image-->
+                    <img
+                      class="PopImg"
+                      src="IMAGES/hebergements/2_large/aw-creative-VGs8z60yT2c-unsplash.jpg"
+                      alt="Au coeur de l'eau Chambresd'hôtes"
+                    />
+
+                    <!--Description-->
+                    <div class="PopDescr">
+                      <h3>
+                        Au coeur de l'eau<br />
+                        Chambres d'hôtes
+                      </h3>
+                      <p>
+                        Nuit à partir de <span class="bold"> 71€</span
+                        ><br /><br />
+                      </p>
+                      <div class="Etoiles">
+                        <span class="fas fa-star EtoilePleine"></span>
+                        <span class="fas fa-star EtoilePleine"></span>
+                        <span class="fas fa-star EtoilePleine"></span>
+                        <span class="fas fa-star EtoilePleine"></span>
+                        <span class="fas fa-star EtoilePale"></span>
+                      </div>
                     </div>
+                  </div>
+                </a>
+              </article>
 
-                </section>
+              <article class="PopArticle LienArticle">
+                <a href="#">
+                  <!--Lien sur le bloc -->
+                  <div class="PopItem">
+                    <!--Image-->
+                    <img
+                      class="PopImg"
+                      src="IMAGES/hebergements/2_large/febrian-zakaria-sjvU0THccQA-unsplash.jpg"
+                      alt="Hôtel tout bleu et Blanc"
+                    />
 
-                <section class=PiedDePage>
-                    <div>
-                        <h3>Nos hébergements</h3>
+                    <!--Description-->
+                    <div class="PopDescr">
+                      <h3>Hôtel tout bleu et Blanc</h3>
+                      <p>
+                        Nuit à partir de <span class="bold"> 68€</span
+                        ><br /><br />
+                      </p>
+                      <div class="Etoiles">
+                        <span class="fas fa-star EtoilePleine"></span>
+                        <span class="fas fa-star EtoilePleine"></span>
+                        <span class="fas fa-star EtoilePleine"></span>
+                        <span class="fas fa-star EtoilePleine"></span>
+                        <span class="fas fa-star EtoilePale"></span>
+                      </div>
                     </div>
-                    <div>
+                  </div>
+                </a>
+              </article>
+            </div>
+            <!--Fin liste des  hebergt populaires-->
+          </div>
+          <!--Fin  hebergt populaires-->
+        </section>
+        <!--Fin section hebergt normaux et populaires-->
 
-                            <p><a href="#">Charte qualité</a></p>
-                            <p><a href="#">Soumettre votre hôtel</a></p>
+        <!--Section Activites-->
+        <section id="Activites">
+          <!-- Bloc Activités avec titre et articles-->
+          <!--Le titre du bloc-->
+          <div class="TitreActivites DecalageGauche">
+            <h2>Activités à Marseille</h2>
+          </div>
 
+          <!--La liste des activités -->
+          <div class="ListeActivites">
+            <!-- Articles avec les activités-->
+            <article class="Activites1ou2 LienArticle">
+              <a href="#">
+                <!--Lien sur le bloc  -->
+                <div class="ActiviteItem">
+                  <!--Image-->
+                  <img
+                    class="ActiviteImg"
+                    src="IMAGES/activites/2_large/reno-laithienne-QUgJhdY5Fyk-unsplash.jpg"
+                    alt="Vieux port"
+                  />
+
+                  <!--Description-->
+                  <div class="ActiviteDescr">
+                    <h3>Vieux port</h3>
+                  </div>
+                </div>
+              </a>
+            </article>
+
+            <!-- Bloc de 2 Articles avec les activités-->
+            <div class="Activites1ou2 Bloc2Articles">
+              <!-- 1ier article du bloc-->
+              <article class="LienArticle">
+                <a href="#">
+                  <!--Lien sur le bloc -->
+                  <div class="ActiviteItemReduitHaut">
+                    <!--Image-->
+                    <img
+                      class="ActiviteImgReduite ActiviteImgReduiteFortP"
+                      src="IMAGES/activites/2_large/paul-hermann-QFTrLdQIRhI-unsplash.jpg"
+                      alt="Fort de Pomègues"
+                    />
+
+                    <!--Description-->
+                    <div class="ActiviteDescr">
+                      <h3>Fort de Pomègues</h3>
                     </div>
+                  </div>
+                </a>
+              </article>
 
-                </section>
+              <!-- 2ieme article du bloc-->
+              <article class="LienArticle">
+                <a href="#">
+                  <!--Lien sur le bloc -->
+                  <div class="ActiviteItemReduitBas">
+                    <!--Image-->
+                    <img
+                      class="ActiviteImgReduite ActiviteImgReduiteIlesF"
+                      src="IMAGES/activites/2_large/kevin-hikari-rV_Qd1l-VXg-unsplash.jpg"
+                      alt="Fort de Pomègues"
+                    />
 
-                
-                <section class=PiedDePage>
-                    <div>
-                        <h3>Assistance</h3>
+                    <!--Description-->
+                    <div class="ActiviteDescr">
+                      <h3>Iles du Frioul</h3>
                     </div>
-                    <div>
+                  </div>
+                </a>
+              </article>
+            </div>
+            <!-- Fin bloc Activites 1 ou 2-->
 
-                        <p><a href="#">Centre d'aide</a></p>
-                        <p><a href="#">Nous contacter</a></p>
+            <article class="Activites1ou2 LienArticle">
+              <a href="#">
+                <!--Lien sur le bloc -->
+                <div class="ActiviteItem">
+                  <!--Image-->
+                  <img
+                    class="ActiviteImg"
+                    src="IMAGES/activites/2_large/kilyan-sockalingum-NR8-cBCN3aI-unsplash.jpg"
+                    alt="Parc national des calanques"
+                  />
 
+                  <!--Description-->
+                  <div class="ActiviteDescr">
+                    <h3>Parc national des calanques</h3>
+                  </div>
+                </div>
+              </a>
+            </article>
+
+            <!-- Bloc de 2 Articles avec les activités-->
+            <div class="Activites1ou2 Bloc2Articles">
+              <!-- 1ier article du bloc-->
+              <article class="LienArticle">
+                <a href="#">
+                  <!--Lien sur le bloc -->
+                  <div class="ActiviteItemReduitHaut">
+                    <!--Image-->
+                    <img
+                      class="ActiviteImgReduite ActiviteImgReduiteNDame"
+                      src="IMAGES/activites/2_large/florian-wehde-xW9e8gdotxI-unsplash.jpg"
+                      alt="Notre-Dame-de-la-Garde"
+                    />
+
+                    <!--Description-->
+                    <div class="ActiviteDescr">
+                      <h3>Notre-Dame-de-la-Garde</h3>
                     </div>
+                  </div>
+                </a>
+              </article>
 
-                </section>
-            
-            </footer>
-        </div>
-    </body>
+              <!-- 2ieme article du bloc-->
+              <article class="LienArticle">
+                <a href="#">
+                  <!--Lien sur le bloc -->
+                  <div class="ActiviteItemReduitBas">
+                    <!--Image-->
+                    <img
+                      class="ActiviteImgReduite ActiviteImgReduitePLongchamp"
+                      src="IMAGES/activites/2_large/lena-paulin-wH2-EJoDcV0-unsplash.jpg"
+                      alt="Parc Longchamp"
+                    />
+
+                    <!--Description-->
+                    <div class="ActiviteDescr">
+                      <h3>Parc Longchamp</h3>
+                    </div>
+                  </div>
+                </a>
+              </article>
+            </div>
+            <!-- Fin activites 1 ou 2-->
+          </div>
+          <!-- Fin bloc Liste des Activités-->
+        </section>
+        <!-- Fin section Activités-->
+      </main>
+
+      <!--Footer-->
+
+      <footer>
+        <section class="PiedDePage">
+          <div>
+            <h3>A propos</h3>
+          </div>
+          <div>
+            <p><a href="#">Fonctionnement du site</a></p>
+            <p><a href="#">Conditions générales de vente</a></p>
+            <p><a href="#">Données et confidentialité</a></p>
+          </div>
+        </section>
+
+        <section class="PiedDePage">
+          <div>
+            <h3>Nos hébergements</h3>
+          </div>
+          <div>
+            <p><a href="#">Charte qualité</a></p>
+            <p><a href="#">Soumettre votre hôtel</a></p>
+          </div>
+        </section>
+
+        <section class="PiedDePage">
+          <div>
+            <h3>Assistance</h3>
+          </div>
+          <div>
+            <p><a href="#">Centre d'aide</a></p>
+            <p><a href="#">Nous contacter</a></p>
+          </div>
+        </section>
+      </footer>
+    </div>
+  </body>
 </html>
