@@ -1,0 +1,1585 @@
+
+/*-------------------------*/
+/* -----------------------------
+Projet 2 OPEN CLASSROOM
+Code CSS
+
+Création: 25/11/2021
+Auteur: BTC
+------------------------------*/
+/*Versions
+V1: 29/11/2021
+Header avec NAV, Recherche, Filtres et Promesse
+Balises sémantiques
+
+V2: 29/11/21: ajout .FiltreItem:hover: pour chant aspect des filtres au survol
+    Ajout variables de couleur, marge et graisse
+    Ajout Marge de gauche
+    Chgt de couleur des filtres au survol
+
+V3:29/11/21: Ajout CSS pour formulaire de recherche
+V4: 30/22/2021: Ajout CSS poour Hébergements à Marseille
+V5: 01/12/2021: Ajout "Les plus populaires"
+V6: 01/12/2021: Ajout effets de liens sur les cards Hébergt et populaires
+V7: 01/12/2021:  Ajout des ombres sur les articles
+V8: 01/12/2021: Ajout CSS pour section activites
+01/12/2021: Correction effets sur liens : 1 seule classe LienArticle
+01/12/2021 Correction header
+    Filtres:     border-radius: 50px;  pour faire rond
+    Correction  Recherche:
+    Ajout classe: .ArrondiTousCoins, ArrondiDroite, ArrondiGauche, ArrondiHaut
+    Correction apparence des filtres 
+02/12/2021
+    Correction taille photos activités
+    Ajout de variables pour la taille des photos  : ne ft pas tres bien . On verra plus tard
+V9:  Ajout CSS pour footer
+V10:
+    Activités: Ajout .Bloc2Articles
+V11:
+    Correction NAV: pour surlignage ligne du haut au survol
+    --MargeBordGauche changé de 20px à :0px;
+    REcherche: bordure grise déplacée sur le champ de saisie
+        Ajoustement des elt avec ajout de bordure sur le bouton rechercher
+    Correction Affichage Parties Hebergt, Pop et Activités:
+    
+        Largeur : en pourcentages
+        Hebergt: 66%
+        Les 3 hebergt = 100%
+        elt des card = 33,3%
+        Image = 100%  
+
+ 
+    Dans chaque bloc flex: Ajout propriété :     box-sizing:border-box;      /*  bordure et le remplissage dans la valeur définie pour la largeur et la hauteur
+    Correction dimensions: 
+     Ajout dimensions des photos en pixel
+     LArgeur en %
+    Filtres: ajout de flex-wrap : wrap;
+    
+    Hebergt Ajout de .HebergtArticle
+    ListActivites: ajout flex-flow: row wrap;   
+    Taille largeur item Activites de 20% 
+
+V13:
+    Corrections apres W3C
+
+V14: 
+    Ajout ombre bleue au survol des items Hebergt, populaire et activites
+    Propriété border-radius mise sur une ligne regroupant top bottom left right
+
+V15:
+    Ajout classe h4
+    Ajout classe Transparent
+    Correction Activités: Hauteurs bloc images et descr forcées en pixels
+V16:
+    Ajout media queries pour responsive
+    REcherche: position des elt en absolu
+    Recherche: essais pour cacher le bouton recherche et le remplacer par la loupe
+    Meta queries déplacées à la fin du CSS
+    2 meta queries: 1 pour les tablettes et 1 pour le smartphone
+V17:
+    Correction media queries
+    Correction taille images toutes sections
+    correction images smartphone
+V18:
+    nav pour smartphone: suppression de la marge pour que les soulignés des 2 items se touchent
+V19:
+    Correction nav ul et li en responsive pour centre les items du menus de navigation et leur faire occuper 50% de la largeur
+    Menu: nav a: color:black lien au reposforcé en noir
+    LienArticle: a : lien au repos forcé en noir
+    footer: lien au repos forcé en noir
+V20:
+    LogoRechercheDescription renommé RechercheLogo
+    ChampRecherche renommé RechercheChamp
+    BoutonRecherche renommé RechercheBouton
+    BoutonSmartphone renommé RechercheBoutonSmartphone
+
+    Correction section recherche pour qu'elle s'affiche sur toute la largeur en smartphone
+
+----------------------------*/
+
+
+
+
+
+
+/*------------------------------------------------------------
+Paramètres de box-sizing:
+Content-box : c'est la valeur par défaut, elle spécifie que les largeur et hauteur définies s'appliquent aux largeur 
+et hauteur du contenu seul, et que le padding, la bordure et les marges sont en dehors de ces dimensions.
+
+Border-box : les largeur et hauteur spécifiées sont celles de l'élément dans son ensemble, 
+    en conséquence les dimensions du padding ou des bordures viennent diminuer les dimensions du contenu.
+
+DImensions du desktop
+Pour convertir une longueur en pixel en cm, on multiplie par 0.02646 ou on divise par 37.7953.
+
+Hauteurs
+
+Header: 6, 0 cm   20%  226,77px
+Hebergements: 9,6 cm   33%  340,16px
+Activités: 7,7 cm  27,5%  264,56
+Footer: 3,3 cm  12%  113,38
+
+
+Hauteur des photos:
+Hebergements:1,8 cm  37,79px
+Populaires: 2 cm  75,59px
+Activités: 6 cm  226,77px
+Fort: 2,8 cm  75,59px
+Ile: 1,5 cm  37,79px
+Notre Dame:2,2 cm   75,69px
+Parc: 2,4 cm   75,59px
+----------------------------------------------------------------*/
+
+
+/* Variables */
+
+:root{
+/*Les couleurs*/
+--FondBleu:#0065FC;
+--FondBleuClair:#DEEBFF;
+--FondGris:#F2F2F2;
+--FondSurvolFiltres:Grey;
+--OmbreArticle: rgb(212, 208, 208);        /* Couleur de l'ombre de l'article*/
+
+/* Les marges*/
+--MargeBordGauche:20px;         /* Marge pour afficher les div à partir du bord gauche d'un container*/
+--MargeBordGaucheEcran:20px;     /* Marge pour afficher les div à partir du bord gauche de l'écran*/
+--MargeBordDroitEcran:20px;     /* Marge pour afficher les div à partir du bord droit de l'écran*/
+
+--PaddingCard:10px;             /* Marge intérieure pour les items hébergement*/
+
+/* Les rayons de courbure*/
+--RadiusCard:15px;              /* Rayon de courbure pour les items : petit arrondi*/
+--RadiusRond:50px;              /*50px pour faire un rond*/
+
+/* graisse du texte*/
+--TextGras:800;
+
+/* Taille  des sections avec photos*/
+
+--HauteurActivites:600px;           /* Hauteur de la section activites= forcée en pixels*/
+
+/* Hauteur des photos en pixels;*/
+
+--HauteurHebImg:125px;
+
+
+--HauteurPopImg:180px;
+
+
+--HauteurActivites1ou2:420px;
+
+--HauteurActivitesItemReduit:150px;
+
+--HauteurActivitesImg:360px;
+
+--HauteurActivitesImgReduite:100px;
+
+--HauteurActivitesDescription:60px;
+
+--MargeActivitesReduites:50px;
+
+/* Hauteurs des images réduites de activité  */
+--HautImgFortP:163px;
+--HauteurImgIlesF:80px;
+--HauteurImgNDame:120px;
+--HauteurImgPLongchamp:123px;
+
+
+
+--MargeSections:18.89px;        /* 0,5 cm */
+
+/* Hauteur des images pour le smartphone*/
+--HauteurImgSmartPop:125px;
+--HauteurImgSmartHeb:125px;
+--HauteurImgSmartAct:125px;
+
+
+
+}
+
+
+
+
+
+
+/*Infos générales body*/
+body
+{
+
+    font-family: 'Raleway', sans-serif;
+    
+    color:black;                   /*Couleur du texte: noir*/
+
+    margin:var(--MargeBordGaucheEcran);       /* Suppression de la marge*/
+
+
+}
+
+
+
+/* Balises sémantiques */
+h1{
+    font-size: 20px;
+    font-weight: var(--TextGras);
+    /*padding:20px 40px;   /* marge interne : verticale   Horizontale*/
+}
+h2{
+    font-size: 16px;
+    font-weight: 600;
+    /*padding:20px 40px; /* pas de padding*/
+}
+
+h3{
+    font-size: 14px;
+    font-weight: 600;
+    /*padding:20 40px;*/            /* pas de padding*/
+}
+
+h4{
+    font-size: 12px;
+    font-weight: 400;
+    /*padding:20 40px;*/            /* pas de padding*/
+}
+
+h6{
+    font-size:2px;                  /* tout petit pour rester caché dans une section où il faut une balise h1/h6*/
+}
+
+
+p{
+    font-size:12px;
+    font-weight: 400;
+}
+
+/*Classes aspects*/
+.bold{                      /*textes en gras*/
+    font-weight: var(--TextGras);
+}
+
+.Transparent{/* Pour afficher qq chose incognito*/
+    color:transparent;
+}
+
+/*Classes elts*/
+.Logo{                          /*classe des logos à centrer*/
+    margin:auto;                /*petit logo au centre du cercle*/
+}
+
+/*Les étoiles*/
+.EtoilePleine{                  /* 12px et fond bleu*/
+    color:var(--FondBleu);
+    height:12px;
+
+}
+
+.EtoilePale{
+    color:var(--FondGris);
+    height:12px;
+
+}
+
+/* Classe pour décalage*/
+.DecalageGauche{
+    margin-left: var(--MargeBordGauche);      /* Décalage par rapport au bord du cadre*/
+}
+
+/*Classe pour arrondir les angles*/
+.ArrondiTousCoins{
+    /*mise en forme arrondi à chaque coin*/
+
+
+    border-radius:var(--RadiusCard);
+
+}
+
+.ArrondiGauche{
+
+    /*mise en forme arrondi à gauche et droit à droite*/
+
+    border-radius: var(--RadiusCard) 0 0 var(--RadiusCard)  ;  /* Top left / Top right / Bottom right / Bottom left*/
+
+}
+
+.ArrondiDroite{
+
+    /*mise en forme arrondi à droite et droit à gauche*/
+
+    border-radius:0 var(--RadiusCard)  var(--RadiusCard) 0 ;  /* Top left / Top right / Bottom right / Bottom left*/
+
+}
+
+.ArrondiHaut{
+    /*mise en forme arrondi en haut et droit en bas*/
+
+
+    border-radius:var(--RadiusCard)  var(--RadiusCard) 0 0;  /* Top left / Top right / Bottom right / Bottom left*/
+
+
+}
+
+/* Sections du header*/
+/* -------------NAV ------------------------------------------*/
+nav {                   /* Elt de navigation avec logo et menu*/
+    display:flex;       /*Display items menu côte à côte*/
+    justify-content: space-between; /* Elts a chaque bout de l"écran*/
+    align-items: center;
+
+    width:100%;         /* Largeur =100% du container*/
+
+    margin-top:0;       /*Tout en haut*/
+    margin-left: var(--MargeBordGaucheEcran);        /* marge par rapport au bord gauche de l'écran*/
+    margin-right: var(--MargeBordDroitEcran);        /* marge par rapport au bord droit de l'écran*/
+}
+
+
+nav img {           /* logo Booki*/
+
+    height: 40px;       /*Taille du logo*/
+
+}
+nav ul {            /* Menu*/
+    display: flex;
+
+    list-style:none;    /*suppression des .*/
+}
+
+nav li{             /* items du menu*/
+
+    padding:20px;       /*marge interne*/
+
+    margin:0 10px 0 20px;  /* Taille des marges*/
+    margin-top: 0;      /*tout en haut*/ 
+  
+    /*bordure transparente */
+    border:2px solid transparent;
+}
+
+nav a{
+    font-size: 12px;
+    color:black;    /* couleur du lien au repos*/
+    
+}
+
+/* Les liens du menu de navigation*/
+nav a:link{text-decoration:none}  /*le lien au repos n'est pas souligné*/
+
+nav a:hover{            /*le lien au survol*/
+    color:var(--FondBleu);      /*passe en bleu*/
+}
+
+nav li:hover{           /*le lien au survol*/
+
+    border-top-color: var(--FondBleu);  /* trait bleu au dessus*/
+}
+
+
+/*-----------Titre de la page---------------------------*/
+.TitrePage{
+    margin-left: var(--MargeBordGaucheEcran);        /* marge par rapport au bord gauche de l'écran*/
+}
+
+/*-----------Recherche---------------------------*/
+
+/*Section de recherche avec son formulaire*/
+.Recherche{         /* la section recherche contient 2 elts le h6 caché et le bloc RechercheItem*/
+    
+    display:flex; 
+    flex-direction: column;            /*RechercheItem puis h6*/
+    justify-content:flex-start;         /* elt en début de ligne*/
+    box-sizing:border-box;
+
+
+    margin-top:20px;            /* marge entre la section de recherche et la section titre */
+    margin-bottom:20px;         /* marge entre la section de recherche et la section  Filtres*/
+
+    margin-left: var(--MargeBordGaucheEcran);        /* marge par rapport au bord droit de l'écran*/
+    
+}
+
+
+/* 3 parties pour le champ de recherche
+Gauche: le logo
+Centre: Le champ de recherche
+Droite: le bouton recherche = "Recherche" ou "loupe"*/
+
+
+
+.RechercheItem{                    /* l'ensemble logo + saisie + bouton*/
+    display:flex;
+    flex-direction: row;            /*Horizontal*/
+
+    justify-content:space-between;         /* elt  répartis sur toute la largeur*/
+
+    /*Taille*/
+    width:35%;               /*Affichage sur une partie de la largeur*/
+    height:50px;            /*Hauteur forcée en pixels*/
+
+    /* Bordure solid, grise */
+    border:2px solid var(--FondGris);
+
+    border-radius: var(--RadiusCard);   /* Coins arrondis*/
+                          
+}
+
+
+
+
+
+
+.RechercheLogo{                       /*deco du logo*/
+    display:flex;                               /* Permet de centrer l'icone'*/
+
+    background-color:var(--FondGris);          /* le logo est sur fond gris*/
+
+    padding:17px;           /* Marge interne pour décaler le logo sur son fond gris et aligner sur champ recherche et bouton*/
+
+    border:1px solid var(--FondGris);           /*Ajout d'une bordure pour alignement avec le pourtour*/
+   
+}
+
+
+.RechercheChamp{                        /*Champ de la recherche utilisateur*/
+ 
+    height: 100%;
+    width: 100%;
+    border: none;
+
+    padding-left: 10px;             /* Marge interne permet de mettre de l'espace autour du champ de saisie*/
+    padding-right: 5px;             /* Marge interne permet de mettre de l'espace autour du champ de saisie*/
+
+    /* Bordure solid, grise de 2px  Supprimée car la bordure est sur le bloc rechercheItem*/
+    /*border:2px solid var(--FondGris);*/
+    
+}
+
+
+.RechercheChamp p {                        /*Champ de la recherche utilisateur*/
+    height: 100%;
+    margin: 0;
+}
+
+.saisie{
+    color:black;        /* couleur texte de saisie*/
+    /*padding:  5px 20px 5px 20px;              /* haut | droit | bas | gauche */
+    height:100%;
+    width:100%;
+    padding: 0;
+    
+}
+.RechercheBouton{         /* le bouton avec "Recherche" sur fond bleu*/
+    display:flex;              
+    height:100%;        /* Occupe toute la hauteur du container*/
+
+    background-color:var(--FondBleu);   /*fond du bouton*/
+
+
+    /*margin:                       Pas de marge externe;*/
+
+    border:1px solid var(--FondBleu);       /* Ajout bordure pour aligner le bouton sur champ de recherche*/
+
+}
+
+
+.RechercheBoutonSmartphone{          /* le bouton bleu avec la loupe*/
+    display:flex;           /* permet de positionner l'icone*/  
+
+    height:100%;        /* Occupe toute la hauteur du container*/
+
+    background-color: var(--FondBleu);      /*sur fond bleu*/
+
+    border:1px solid var(--FondBleu);       /* Ajout bordure pour aligner le bouton sur champ de recherche*/
+
+
+    display:none;           /* Pas d'affichage en mode normal  */
+
+}
+
+.LogoLoupe{     /* La loupe pour la recherche*/  /* BTC debug  reduit à 15px ?????? */
+
+
+    /*dimentions de l'icone + petite marge*/
+    height:15px;
+    width:15px;
+
+    padding :17px;
+
+    color:white;        /*la loupe en blanc*/
+    margin:auto;                /* Positionne l'icone */
+        
+    border-radius: var(--RadiusCard);       /*coins arrondis*/
+
+}
+    
+
+/* Affichage du bouton rechercher du formulaire*/
+input{
+
+    background-color:transparent;   /*fond du bouton = celui du parent*/    
+    color:white;        /*couleur du texte*/
+    border-color: transparent;  /* pas de bordure*/
+}
+
+
+
+/* -----------filtres-------------------------*/
+
+.Filtres{                               /* Section avec titre "Filtres" +liste de tous les filtres*/
+    display:flex;
+    justify-content:flex-start ;         /* elt en début de ligne et retour à la ligne si nécessaire*/
+    box-sizing:border-box;
+  
+    font-weight: var(--TextGras);
+
+    margin-left: var(--MargeBordGaucheEcran);        /* marge par rapport au bord gauche de l'écran*/
+
+}
+
+/*Titre Filtre*/
+.FiltresTitre{
+    
+    padding:20px 0 20px 0;  /* haut | droit | bas | gauche */
+}
+
+/* Liste des filtres*/
+.ListeFiltres{
+    display:flex;
+    justify-content:flex-start ;         /* elt en début de ligne et retour à la ligne si nécessaire*/
+    box-sizing:border-box;
+
+    flex-wrap : wrap;   /* L’élément qui dépasse va  être placé sous les autres, sur la gauche.*/
+
+}
+
+ /* l'ensemble logo + description du filtre*/
+.FiltreItem{                   
+    display:flex;
+    align-items: center;
+    box-sizing:border-box;
+
+    margin:20px;  /* marge entre chaque bloc*/
+    
+    border-radius: var(--RadiusRond);                /*on arrondit les angles  50px  = un rond*/
+                        
+    /*petite bordure grise*/
+    border-style: solid;
+    border-color: var(--FondGris) ; 
+
+}
+
+
+.FiltreLogo{             /* le petit logo qui accompagne le filtre*/
+    
+    display:flex;                   /* Permet de placer l'icone*/
+
+    color:var(--FondBleu);                     /* le logo en bleu*/
+    background-color:var(--FondBleuClair);   /*Fond du logo en bleu clair*/
+
+    /*cercle pour entourer le petit logo*/
+    height: 20px; 
+    width: 20px;  
+ 
+    padding :10px;
+
+    border-radius: var(--RadiusRond);   /* tour du logo en rond*/
+}
+
+
+.FiltreDesc{                /* le blabla descrip du filtre*/
+    Font-weight:var(--TextGras); 
+    padding-left: 20px;             /* Espace avant/après le  texte*/  
+    padding-right: 20px;           /* Espace avant/après le  texte*/  
+}
+
+/*Lien sur le filtre*/
+.FiltreItem:hover{                      /*chgt filtre au survol*/
+    background-color:var(--FondGris) ;  /* Fond gris au survol*/
+
+}
+
+
+/* --------------------- Promesse------------------------------------*/
+
+.Promesse{              /* ensemble logo + blabla*/
+
+    display:flex;
+    justify-content:flex-start;         /* elt en début de ligne*/
+    align-items: center;
+    margin-left: var(--MargeBordGaucheEcran);        /* marge par rapport au bord gauche de l'écran*/
+
+}
+
+.LogoPromesseDescription{           /* Le logo*/
+    display:flex;
+    color:var(--FondBleu);                     /* le logo en bleu*/
+    background-color:var(--FondGris);      /*Fond du logo en gris*/
+
+
+
+    /*cercle pour entourer le petit logo*/
+    height: 20px; 
+    width: 20px; 
+
+    padding :10px;          /* Marge autour du logo*/
+
+    border-radius: var(--RadiusRond);  /* tour du logo en rond*/
+}
+
+.PromesseBlabla{
+    padding:20px;       /* marge interne poru décaler le blabla*/
+}
+
+
+
+/*----------------Main---------------------------*/
+main{                       /* 2 blocs: Hebergt et Activités*/
+    display: flex;
+    flex-direction: column;     /* vertical*/
+
+    justify-content: space-around;     /* espaces partout*/
+    box-sizing:border-box;      /*  bordure et  remplissage dans la valeur définie pour la largeur et la hauteur*/
+
+    margin-left: var(--MargeBordGaucheEcran);        /* marge par rapport au bord droit de l'écran*/
+    margin-right: var(--MargeBordDroitEcran);        /* marge par rapport au bord droit de l'écran*/
+}
+
+
+/*------------------------------------------------------------*/
+/*------------Les liens des articles-----------------------------*/
+/*------------------------------------------------------------*/
+
+
+
+.LienArticle a:link{        /* lien au repos*/
+    text-decoration:none;       /*lien pas souligné*/        
+    color:black;            /* couleur du lien au repos = noir*/
+   
+
+} 
+
+/* le lien au survol*/
+.LienArticle a:hover{
+    text-decoration:underline;          /* texte souligné*/
+    color:var(--FondBleu);      /*bleu*/
+}
+
+/* Effets supplémentaires au survol   */
+.HebergtItem:hover{  /* survol de l'item*/
+
+    /* Ajout d'une ombre  */
+    box-shadow: 5px 5px 5px  var(--FondBleu);  /* Décalage horizontal, décalage vertical, force du dégradé, couleur*/
+
+ } /* */
+
+.PopItem:hover{  /* survol de l'item*/
+
+    /* Ajout d'une ombre   */
+    box-shadow: 5px 5px 5px  var(--FondBleu);  /* Décalage horizontal, décalage vertical, force du dégradé, couleur*/
+ 
+} /* */
+
+.ActiviteItem:hover{  /* survol de l'item*/
+
+    /* Ajout d'une ombre   */
+box-shadow: 5px 5px 5px  var(--FondBleu);  /* Décalage horizontal, décalage vertical, force du dégradé, couleur*/
+ 
+} /* */
+
+.ActiviteItemReduitHaut:hover{  /* survol de l'item*/
+
+    /* Ajout d'une ombre */
+    box-shadow: 5px 5px 5px  var(--FondBleu);  /* Décalage horizontal, décalage vertical, force du dégradé, couleur*/
+ 
+} /* */
+
+.ActiviteItemReduitBas:hover{  /* survol de l'item*/
+
+    /* Ajout d'une ombre */
+    box-shadow: 5px 5px 5px  var(--FondBleu);  /* Décalage horizontal, décalage vertical, force du dégradé, couleur*/
+ 
+} /* */
+
+
+
+/*----------------------------------------------------*/
+/* CSS Pour l'affichage des hebergt                   */
+/*----------------------------------------------------*/
+
+/* Hebergements "normaux" et "populaires*/
+
+#HebergementPopNormaux{     /* 2 blocs hegergt normal et Hebergt populaire*/
+
+    display:flex;
+    flex-direction: row;        /*horizontal les 2 blocs côte à côte*/
+
+    justify-content: space-between; /* un bloc a chaque extrémité de la page*/
+    box-sizing:border-box;      /*  bordure et le remplissage dans la valeur définie pour la largeur et la hauteur*/
+
+    width:100%;                 /* Occupation de 100% de la largeur de l'écran*/
+    /*height:                    /* hauteur: On laisse se débrouiller */
+
+   /* margin:var(--MargeBordGaucheEcran);  /* MArge bord écran*/
+
+    /* padding: 20px;               /* Pas de padding*/
+}
+
+/* Hebergements "normaux"*/
+
+/* Dimensions:
+
+En largeur: 100% du container
+EN hauteur:
+    10% pour le titre
+    80% pour la liste des hébergements
+    10% pour le "afficher plus"
+
+    */
+
+.HebergtNormaux{                    /* blocs avec titre, liste et "Afficher plus*/
+    display:flex;
+    flex-direction: column;                /* vertical*/
+
+    justify-content:space-around;         /* espaces partout */
+    box-sizing:border-box;      /*  bordure et le remplissage dans la valeur définie pour la largeur et la hauteur*/
+
+
+    width:66%;                    /* Largeur: 2/3 de la page*/  
+    height:100%;                 /* 100% du container*/
+
+    background-color: var(--FondGris);  /*Fond gris*/
+    
+    /*margin:var(--MargeBordGauche);  /* MArge par rapport au bord du container*/
+}
+
+/* Le titre de hébergements normaux*/
+.TitreHebergt{
+    width:100%;                  /* Toute la largeur du container*/
+    height:10%;                 /*10% en hauteur du container*/
+}
+
+
+
+
+
+
+/* La liste des hébergements*/
+.ListeHebergements{                 /* Groupe de 2 fois 3 hebergt*/
+    display: flex;
+    flex-direction: column;         /* vertical: les 2 groupes l'un en dessous de l'autre*/
+
+    justify-content:space-around;       /* disposition avec des espaces entre chaque item et au bord*/
+    box-sizing:border-box;      /*  bordure et le remplissage dans la valeur définie pour la largeur et la hauteur*/
+
+    width:100%;                  /* Toute la largeur du container */
+    height:70%;                 /* hauteur: 70%*/
+
+   /*margin-left: var(--MargeBordGauche);                   /* Marge gauche  du bloc Hébergements*/
+   padding:0 5% ;       /*Marge interne: 0 vertical  5% horizontal*/
+
+}
+
+.ListeHebergtx3{                    /* Groupe de 3 hebergt*/
+
+    display:flex;
+    flex-direction: row;            /* horizontal*/
+
+
+    justify-content: space-around;       /* disposition avec des espaces entre chaque item et au bord*/
+    box-sizing:border-box;      /*  bordure et le remplissage dans la valeur définie pour la largeur et la hauteur*/
+
+ 
+    width:100%;                  /* Largeur: Toute la largeur du container*/
+    height:50%;                  /* Hauteur: chaque bloc de 3 hebergt fait la moitié du container*/
+
+    padding: 5% 0;                   /* Espace haut et bas entre chaque bloc de 3 hebergt*/
+}
+
+
+
+
+.HebergtArticle{
+
+    flex-basis: 33.33%;         /* Taille par defaut = 1/3 du container*/
+    box-sizing:border-box;      /*  bordure et le remplissage dans la valeur définie pour la largeur et la hauteur*/
+    padding:0% 1.5%;            /* Marges internes gauche/droite*/
+}
+
+
+/* Un hebergement avec sa photo et sa description*/
+.HebergtItem{
+    display:flex;
+    flex-direction: column; /* vertical: photo et en dessous la description*/
+
+    justify-content: space-around;       /* disposition avec des espaces entre chaque item et au bord*/
+
+    box-sizing:border-box;              /*  bordure et le remplissage dans la valeur définie pour la largeur et la hauteur*/
+
+
+    background-color: white;        /*sur fond blanc*/
+
+    /* Marges internet et externes*/
+    padding:2%;                     /* marge interne = petit bord blanc au bord de l'image*/
+
+
+    /* On arrondit les angles*/
+    border-radius:var(--RadiusCard) ;  /* Tous les angles arrondis*/
+
+    /* Ajout d'une ombre*/
+    box-shadow: 5px 5px 10px  var(--OmbreArticle);  /* Décalage horizontal, décalage vertical, force du dégradé, couleur*/
+
+
+}
+
+/* L'image de l'hebergt*/
+.HebImg{                /*Image de la taille du container*/
+
+    box-sizing:border-box;              /*  bordure et le remplissage dans la valeur définie pour la largeur et la hauteur*/
+
+    /*Taille*/
+    width:100%;             /*Largeur= 100% du container*/
+    height: var(--HauteurHebImg);       /* On force la hauteur en pixels*/
+
+
+   /* margin:auto;*/
+    object-fit:cover; /* l'image s'adapte par rapport à la plus petite dimension*/
+
+    /* On arrondit les angles en haut*/
+    border-radius:var(--RadiusCard)  var(--RadiusCard) 0 0;  /* Top left / Top right / Bottom right / Bottom left*/
+
+}
+
+/* La desription de l'hebergt: Nom , Prix et étoiles*/
+.HebergtDescr{
+    display:flex;
+    flex-direction: column;     /* vertical*/
+    box-sizing:border-box;              /*  bordure et le remplissage dans la valeur définie pour la largeur et la hauteur*/
+
+    align-items: start;          /* alignés à gauche*/
+    padding:10px;               /*espace bord gauche*/
+    
+
+}
+
+
+
+
+
+
+ 
+
+
+/*--------------------------------------------------------*/
+/*         Les plus populaires:                           */
+/*--------------------------------------------------------*/
+
+/* CSS pour "Les plus populaires"*/
+.HebergtPop{            /* Bloc avec le titre et les items*/
+    display:flex;
+    flex-direction: column;            /* en vertical*/
+
+    box-sizing:border-box;              /*  bordure et le remplissage dans la valeur définie pour la largeur et la hauteur*/
+    width:33%;            /* 1/3 de la page en largeur */
+
+    background-color: var(--FondGris);      /*fond gris*/
+
+
+
+}
+
+/* Le titre et son logo*/
+.TitreHebergtPop{
+    display: flex;
+    flex-direction: row;   /* en horizontal*/
+
+    box-sizing:border-box;              /*  bordure et le remplissage dans la valeur définie pour la largeur et la hauteur*/
+    justify-content: space-between;  /*Titre à gauche et logo à dte du bloc*/
+
+    width:100%;                   /* Toute la largeur du container*/
+    height:10%;                   /* Hauteur: 10% comme le titre des normaux*/
+
+}
+
+/* le logo*/
+.LogoHebergtPop{
+    padding: 15px;              /* Marge interne pour aligner le logo*/
+
+}
+
+/* La liste des hebergt*/
+.ListePopulaires{
+    display:flex;
+    flex-direction: column;            /* en vertical*/
+    justify-content: space-around;  /*espaces partout*/
+
+    box-sizing:border-box;              /*  bordure et le remplissage dans la valeur définie pour la largeur et la hauteur*/
+
+
+
+    width:100%;                   /* Toute la largeur du container*/
+    height:90%;                   /* Hauteur: 90%*/
+
+    padding:0 5%;                 /*marge interne gauche/droite*/
+}
+
+/* Un hebergement avec sa photo et sa description*/
+.PopItem{
+    display:flex;
+    flex-direction: row; /* horizontal : photo et description à côté*/
+
+    box-sizing:border-box;              /*  bordure et le remplissage dans la valeur définie pour la largeur et la hauteur*/
+    background-color: white;
+
+    width:100%;                   /* Toute la largeur du container*/
+    /*height                 /* Hauteur: Ca se débrouille*/
+
+    /*margin:20px;       /* marge externe du bloc  Inutile*/
+    /*padding:var(--PaddingCard);       /* marge interne  : inutile*/
+
+    /* On arrondit les angles*/
+    border-radius: var(--RadiusCard);  /* Tous les angles arrondis*/
+
+    /* Ajout d'une ombre*/
+    box-shadow: 5px 5px 10px  var(--OmbreArticle);  /* Décalage horizontal, décalage vertical, force du dégradé, couleur*/
+}
+
+
+/* L'image de l'hebergt*/
+.PopImg{                /*Image de la taille du container*/
+
+    box-sizing:border-box;              /*  bordure et le remplissage dans la valeur définie pour la largeur et la hauteur*/
+
+
+    width:38%;              /* largeur: 38% du total*/
+    height: var(--HauteurPopImg);           /* Hauteur = fixée en pixels*/
+
+    object-fit:cover; /* l'image s'adapte par rapport à la plus petite dimension*/
+
+    padding:2%;        /* marge interne = petit bord blanc au bord de l'image*/
+
+    /* On arrondit les angles côté gauche*/
+    border-radius: var(--RadiusCard) 0 0 var(--RadiusCard)  ;  /* Top left / Top right / Bottom right / Bottom left*/
+
+}
+
+/* La desription de l'hebergt: Nom prix et étoiles*/
+.PopDescr{
+    display:flex;
+    flex-direction: column;     /* vertical*/
+
+    justify-content: space-around;
+    align-items: start;          /* alignés à gauche*/
+
+    box-sizing:border-box;              /*  bordure et le remplissage dans la valeur définie pour la largeur et la hauteur*/
+
+    padding-left:var(--PaddingCard);                /*espace bord gauche*/
+  
+
+
+}
+
+/*-------------------------------------------------------*/
+/* CSS pour "Les  activités"                             */
+/*-------------------------------------------------------*/
+#Activites{            /* Bloc avec le titre et les items*/
+    display:flex;
+    flex-direction: column;            /* titre puis en dessous les activités*/
+
+    justify-content: space-around;  /*espaces partout*/
+
+    box-sizing:border-box;              /*  bordure et le remplissage dans la valeur définie pour la largeur et la hauteur*/
+
+
+    width:100%;                 /* Occupation de 100% de la largeur de l'écran*/
+
+    /*height:                     on laisse se debrouiller*/
+
+
+
+    margin-top:40px ;       /*Marge haute*/
+    /*margin-left:var(--MargeBordGaucheEcran);     /* Marges Gauche*/
+}
+
+/* Titre*/
+.TitreActivites{
+    height:10%;         /* hauteur / rapport au container*/
+
+}
+
+
+
+
+/* La liste des activités*/
+.ListeActivites{
+    display:flex;
+    flex-direction: row ;            /* en horizontal et retour à la ligne si débordement*/
+
+    justify-content: space-around;  /*espaces partout*/
+
+    box-sizing:border-box;              /*  bordure et le remplissage dans la valeur définie pour la largeur et la hauteur*/
+
+    width:100%;                 /* Occupation de 100% de la largeur de l'écran*/
+    height:90% ;            /* hauteur: 90%*/
+
+    margin:20px 0;          /* marge haut/bas et gauche/droite*/
+
+
+
+}
+
+/* Activités par 1 ou 2 en vertical*/
+
+.Activites1ou2{
+    display:flex;
+    flex-direction: column;  /* 1 activité ou 2 l'une en dessous de l'autre*/
+   
+    flex-basis: 23%;         /* Taille par defaut = 1/4 du container + 2% de padding*/
+   
+    height:var(--HauteurActivites1ou2); /* Hauteur forcée en pixels*/
+
+    /* margin:;          /* pas de marge externe du bloc*/
+    /*padding:          /* Pas de marge interne*/
+
+
+}
+
+/* Une grande activite avec sa photo et sa description*/
+.ActiviteItem{
+    display:flex;
+    flex-direction: column; /* vertical : photo et description au dessous*/
+
+    justify-content: space-around;  /*espaces partout*/
+    box-sizing:border-box;              /*  bordure et le remplissage dans la valeur définie pour la largeur et la hauteur*/
+
+    width:100%;                 /*Largeur: Occupation de 100% du container*/
+    height: 100%;               /* hauteur: : Occupation de 100% du container*/
+
+
+    background-color: white;
+
+   /* margin:;          /* pas de marge externe du bloc*/
+    /*padding:          /* Pas de marge interne*/
+
+    /* On arrondit les angles */
+    border-radius: var(--RadiusCard);
+
+
+    /* Ajout d'une ombre*/
+    box-shadow: 5px 5px 5px  var(--OmbreArticle);  /* Décalage horizontal, décalage vertical, force du dégradé, couleur*/
+}
+
+
+/* L'image de l'activité*/
+.ActiviteImg{                /*Image de la taille du container*/
+
+   box-sizing:border-box;              /*  bordure et le remplissage dans la valeur définie pour la largeur et la hauteur*/
+
+   width:100%;               /*Largeur: Occupation de 100% du container*/
+
+   height: var(--HauteurActivitesImg);           /* Hauteur = forcée en pixels*/
+
+
+   object-fit:cover; /* l'image s'adapte par rapport à la plus petite dimension*/
+
+   /* padding:         /* Pas de marge interne*/
+
+    /* On arrondit les angles en haut*/
+    border-radius:var(--RadiusCard)  var(--RadiusCard) 0 0;  /* Top left / Top right / Bottom right / Bottom left*/
+
+
+}
+
+/* Un bloc avec 2 activités*/
+.Bloc2Articles{
+    display:flex;
+    flex-direction: column; /* vertical */
+    justify-content:space-between; /* Un bloc à chaque extrémité*/
+
+    align-content: stretch;
+
+
+
+    box-sizing:border-box;              /*  bordure et le remplissage dans la valeur définie pour la largeur et la hauteur*/
+
+    width: 100%;        /*Largeur: Occupation de 100% du container*/
+    height: 100%;       /*Hauteur: Occupation de 100% du container*/
+
+
+
+}
+
+.ActiviteItemReduitHaut{        /* Un item avec 1 image reduite et sa description*/
+
+    width: 100%;        /*Largeur: Occupation de 100% du container*/
+
+
+   /* height:           /* Hauteur = Se débrouille avec la taille de l'image*/
+
+    margin-bottom: var(--MargeActivitesReduites);   /*Marge au dessous*/
+
+    /* On arrondit les angles */
+    border-radius: var(--RadiusCard);
+    
+    
+    /* Ajout d'une ombre*/
+    box-shadow: 5px 5px 5px  var(--OmbreArticle);  /* Décalage horizontal, décalage vertical, force du dégradé, couleur*/
+
+}
+
+.ActiviteItemReduitBas{        /* Un item avec 1 image reduite et sa description*/
+
+    width: 100%;   /*Largeur: Occupation de 100% du container*/
+
+    /*height:        /* Hauteur = Se débrouille avec la taille de l'image*/
+
+    /*margin-top: var(--MargeActivitesReduites);   /*Marge dessus : non*/
+
+
+    /* On arrondit les angles */
+    border-radius: var(--RadiusCard);
+    
+    
+    /* Ajout d'une ombre*/
+    box-shadow: 5px 5px 5px  var(--OmbreArticle);  /* Décalage horizontal, décalage vertical, force du dégradé, couleur*/
+
+}
+
+/* Classe avec toutes les images réduites de même hauteur*/
+/* Cette classe sera écrasée par les classes de chaque image*/
+.ActiviteImgReduite{        /* Les images réduites*/
+
+   width:100%;               /* Largeur: Occupation de 100% du container*/
+   height: var(--HauteurActivitesImgReduite);           /* Hauteur = forcée en pixels*/
+ 
+    object-fit:cover; /* l'image s'adapte par rapport à la plus petite dimension*/
+
+        /*padding:var(--PaddingCard);       /* Pas de marge interne*/
+
+    /* On arrondit les angles en haut*/
+    border-radius:var(--RadiusCard)  var(--RadiusCard) 0 0;  /* Top left / Top right / Bottom right / Bottom left*/
+
+
+}
+
+/* Les images réduites*/
+/* Fort de Pomegues*/
+.ActiviteImgReduiteFortP{        
+
+    width:100%;               /* Largeur: Occupation de 100% du container*/
+    height: var(--HautImgFortP);           /* Hauteur = forcée en pixels*/
+    
+  
+     object-fit:cover; /* l'image s'adapte par rapport à la plus petite dimension*/
+ 
+    /*padding:var(--PaddingCard);       /* Pas de marge interne*/
+ 
+     /* On arrondit les angles en haut*/
+     border-radius:var(--RadiusCard)  var(--RadiusCard) 0 0;  /* Top left / Top right / Bottom right / Bottom left*/
+ 
+ 
+ }
+
+ /*Iles de Frioul*/
+ .ActiviteImgReduiteIlesF{        /* Les images réduites*/
+
+    width:100%;               /* Largeur: Occupation de 100% du container*/
+    height: var(--HauteurImgIlesF);           /* Hauteur = forcée en pixels*/
+    
+  
+     object-fit:cover; /* l'image s'adapte par rapport à la plus petite dimension*/
+ 
+         /*padding:var(--PaddingCard);       /* Pas de marge interne*/
+ 
+     /* On arrondit les angles en haut*/
+     border-radius:var(--RadiusCard)  var(--RadiusCard) 0 0;  /* Top left / Top right / Bottom right / Bottom left*/
+ 
+ 
+ }
+
+ /*Notre dame de la Garde*/
+ .ActiviteImgReduiteNDame{        /* Les images réduites*/
+
+    width:100%;               /* Largeur: Occupation de 100% du container*/
+    height: var(--HauteurImgNDame);           /* Hauteur = forcée en pixels*/
+    
+  
+     object-fit:cover; /* l'image s'adapte par rapport à la plus petite dimension*/
+ 
+         /*padding:var(--PaddingCard);       /* Pas de marge interne*/
+ 
+     /* On arrondit les angles en haut*/
+     border-radius:var(--RadiusCard)  var(--RadiusCard) 0 0;  /* Top left / Top right / Bottom right / Bottom left*/
+ 
+ 
+ }
+
+ /*Parc Longchamp*/
+ .ActiviteImgReduitePLongchamp{        /* Les images réduites*/
+
+    width:100%;               /* Largeur: Occupation de 100% du container*/
+    height: var(--HauteurImgPLongchamp);           /* Hauteur = forcée en pixels*/
+    /*height:70%;   /* Hauteur = 90% du container: le reste est laissé pour le nom*/
+  
+     object-fit:cover; /* l'image s'adapte par rapport à la plus petite dimension*/
+ 
+         /*padding:var(--PaddingCard);       /* Pas de marge interne*/
+ 
+     /* On arrondit les angles en haut*/
+     border-radius:var(--RadiusCard)  var(--RadiusCard) 0 0;  /* Top left / Top right / Bottom right / Bottom left*/
+ 
+ 
+ }
+
+
+
+
+/* La desription de l'activité*/
+.ActiviteDescr{
+
+    box-sizing:border-box;              /*  bordure et le remplissage dans la valeur définie pour la largeur et la hauteur*/
+
+    align-items: start;             /* alignés à gauche*/
+    padding:var(--PaddingCard);                /*espace bord gauche*/
+
+    width:100%;               /* Largeur: Occupation de 100% du container*/
+    height: var(--HauteurActivitesDescription);           /* Hauteur = forcée en pixels*/
+
+
+
+    /*padding-bottom: *Pas de padding  */
+  
+
+
+}
+
+/*----------------------------------------------------*/
+/*          Footer                                    */
+/*----------------------------------------------------*/
+
+
+footer{                  
+    display:flex;       /*Display 3 sections du footer côte à côte*/
+    justify-content:  space-between;       /* Alignés à gauche*/
+    align-items: start;
+
+
+
+    background-color: var(--FondGris);          /* fond gris*/
+}
+
+.PiedDePage{                /* Chaque section du footer*/
+    display:flex;
+    flex-direction: column; /* vertical*/
+
+    
+    box-sizing:border-box;              /*  bordure et le remplissage dans la valeur définie pour la largeur et la hauteur*/
+
+    width:33%;              /* 1/3 pour chaque section*/
+
+    margin-left: 35px;  /* Marge par rapport au bord gauche du container*/
+
+
+}
+
+/* Gestion des liens*/
+footer a:link{      /*Le lien au repos*/
+    text-decoration:none;    /*le lien n'est pas souligné*/
+    color:black;        /*couleur noire au repos*/
+}  
+
+footer a:hover{            /*le lien au survol*/
+    color:var(--FondBleu);      /*passe en bleu*/
+    text-decoration:underline;  /* texte souligné au survol*/
+}
+
+
+/*-----------------------------------------------------------------------------------------------------*/
+
+/* Media queries pour affichage smartphone et tablettes */
+
+/*----------------------------------------------------------*/
+/* Tablette*/
+/*----------------------------------------------------------*/
+/* Breakpoints pour smartphone et Tablette*/
+/* 992px pour les tablettes et 768px pour les téléphones mobiles*/
+/* Tablette: taille demandée: 992 px en largeur mais aucun modèle n'est dispo pour tester*/
+/* Il existe un modele NestHub en 1024*600*/
+
+/*----------------------------------------------------------*/
+
+/*Affichage tablette:
+Les populaires sont en ligne au dessus des normaux
+couleur texte en Darkblue*/
+
+@media  screen and (min-width: 769px) and (max-width: 992px)       
+{
+    p
+    {
+        color:darkblue;       
+    }
+
+
+    /* Section de recherche affichée sur la largeur de l'écran*/
+    .RechercheItem{ 
+        width:100%;
+    }
+
+    /* Les hebergt pop et normaux*/
+    #HebergementPopNormaux{
+        display:flex;
+        flex-direction: column-reverse; /*vertical  les populaires en premier puis les normaux*/
+    }
+
+    /* Hebergt populaires*/
+    .HebergtPop{
+        width: 100%;        /*Largeur = 100% du container*/
+        margin:20px 0 20px 0;   /* MArges externes /* haut | droit | bas | gauche */
+    }
+
+    /* Liste Hebergt populaires*/
+    .ListePopulaires{
+        flex-direction: row; /*horizontal*/
+        justify-content: space-around;  /*espaces partout*/          
+    }
+
+    /* Article pour heb populaire*/
+    .PopArticle{
+
+        flex-basis: 33.33%;         /* Taille par defaut = 1/3 du container*/
+        box-sizing:border-box;      /*  bordure et le remplissage dans la valeur définie pour la largeur et la hauteur*/
+        padding:0% 1.5%;            /* Marges internes gauche/droite*/
+        margin: 20px 0 20px 0;      /* MArges externes /* haut | droit | bas | gauche */
+    }
+
+
+
+    
+    /* Hebergt normaux occupe toute la largeur*/
+    .HebergtNormaux{
+            width: 100%;        /*Largeur = 100% du container*/
+            margin:20px 0 20px 0;   /* MArges externes /* haut | droit | bas | gauche */
+
+    }
+
+}
+/* fin media queries Tablette*/
+
+/*----------------------------------------------------------*/
+/* Media queries téléphone mobile*/
+/*----------------------------------------------------------*/
+@media screen and (max-width: 768px)
+{
+
+    #bloc_page
+    {
+        width: auto;
+    }
+
+    p
+    {
+        font-size: 10px;        /*ajustement taille police paragraphes*/   
+    }
+
+    /*-----------------------------------------*/
+
+    /* Navigation + logo*/
+    nav { 
+        flex-direction:column;      /*vertical  logo puis menu dessous*/
+       
+    }
+
+    nav ul{         /* Le menu de navigation*/
+        width:100%;     /* Le menu occupe 100% de la largeur du container*/
+        padding:0;      /* suppression de la marge interne*/
+    }
+
+    nav li{     /* les items du Menu de navigation*/
+        flex-basis:50%;     /* chaque item occupe 50% de la largeur*/
+        text-align: center;     /* items centrés*/
+
+        margin:0;  /* Suppression de la marge pour que les 2 items du menu se touchent*/
+        border-bottom-color: var(--FondGris);  /* trait gris au dessous en normal*/
+  
+    }
+    nav li:hover{
+        /* Bordure bleue au dessous au lieu de au dessus*/
+        border-top-color: transparent;  /* trait bleu au dessus  supprimé*/
+        border-bottom-color: var(--FondBleu);  /* trait bleu au dessous*/
+    }
+
+
+    /*-----------------------------------------*/
+
+    /*Promesse*/
+    .LogoPromesseDescription{       /* logo sur fond blanc avec une bordure grise*/
+        background-color: white;
+        border: 2px solid var(--FondGris);
+        padding:5px;        /* logo plus petit*/
+    }
+
+    /*-----------------------------------------*/
+
+    /* Section de recherche*/
+
+    /* Section de recherche affichée sur la largeur de l'écran*/
+    .RechercheItem{ 
+        width:100%;
+    }
+
+
+
+    /* On n'affiche plus le bouton "recherche" mais la loupe*/
+   .RechercheBouton{ 
+     display:none;  /* On cache le bouton pour afficher la loupe*/
+ 
+    }
+
+
+
+    .RechercheBoutonSmartphone{
+        display:block;          /* Affichage du bouton qui était caché*/
+        
+     }
+
+/*-----------------------------------------*/
+
+    /*Filtres*/
+    .Filtres{
+        flex-direction:column;      /*vertical Titre puis liste des filtres en dessous*/ 
+    }
+
+
+/*-----------------------------------------*/
+
+
+    /* Les hebergt pop et normaux*/
+    #HebergementPopNormaux{
+        display:flex;
+        flex-direction: column-reverse; /*vertical  les populaires en premier puis les normaux*/
+    }
+
+    /* Hebergt populaires*/
+    .HebergtPop{
+        
+        width: 100%;     /*Largeur 100% du container*/
+
+        border-radius: 0;       /* Plus d'arrondi*/      
+    }
+     
+
+    /* Articles des Hebergt populaires*/
+    .PopArticle{
+        
+
+        margin: 20px 0 20px 0;      /* MArges externes /* haut | droit | bas | gauche */
+    }
+
+
+    /* Image hegergt populaires*/
+    .PopImg{ 
+        height: var(--HauteurImgSmartPop);           /* Hauteur = fixée en pixels*/
+        
+        
+    }
+
+    /*-----------------------------------------*/
+
+    /* Hebergt normaux*/
+
+    .HebergtNormaux{
+        width: 100%;     /*Largeur 100% du container*/
+        background-color: white;        /*Suppression du fond gris*/
+    }
+
+
+
+    /* Le groupe de 3 hébergements*/
+    .ListeHebergtx3{
+        flex-direction:column;  /*vertical*/
+        padding:0;          /* Remise à 0 du padding pour garder un espace constant entre les articles hébergement*/
+
+    }
+
+    /*Articles hébergement*/
+    .HebergtArticle{
+        margin: 20px 0 20px 0;      /* MArges externes /* haut | droit | bas | gauche */
+    }
+
+    /*Image hébergt normaux*/
+    .HebImg{
+        height: var(--HauteurImgSmartHeb);       /* On force la hauteur en pixels*/
+    }        
+
+
+
+/*-----------------------------------------*/
+
+    /* Les activites*/  
+    
+    #Activites{
+        width: 90%;        /* Largeur =9à% du container pour laisser un espace*/
+    }
+
+    .ListeActivites{
+        flex-direction: column; /*vertical */
+        width:100%;
+        
+    }
+
+    .Activites1ou2{
+       
+        /*flex-basis: 100%;/**/
+        width:100%;
+        margin: 20px;      /* MArges externes /* haut | droit | bas | gauche */
+    }
+
+    .ActiviteItem{
+        width:100%;
+        /*margin: 20px;      /* MArges externes /* haut | droit | bas | gauche */
+    }
+
+    .ActiviteItemReduitBas{
+    
+        width:100%;
+        /*margin: 20px;      /* MArges externes /* haut | droit | bas | gauche */
+    }
+
+    .ActiviteItemReduitHaut{
+        width:100%;
+        /*margin: 20px;      /* MArges externes /* haut | droit | bas | gauche */
+    }
+
+
+
+
+     /* images activités*/
+     .ActiviteImg{
+        width:100%;
+        height:var(--HauteurImgSmartAct);     /*Hauteur fixée en pixels*/
+    }
+     /* images activités*/
+     .ActiviteImgReduite{
+
+        width:100%;
+        height:var(--HauteurImgSmartAct);     /*Hauteur fixée en pixels*/
+    }
+
+
+    /*----------------------------------------------------------------------------------------*/
+
+    /* Le footer*/
+    footer{
+        flex-direction: column; /*vertical */
+
+    }
+
+
+}       /* Fin media queries mobile*/
+
+
+
+
+
+
+
+
